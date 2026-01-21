@@ -6,6 +6,7 @@ const navLinks = [
   { name: "Home", href: "#home" },
   { name: "About Us", href: "#about" },
   { name: "Services", href: "#services" },
+  { name: "How We Work", href: "#process" },
   { name: "Contact Us", href: "#contact" },
 ];
 
@@ -21,7 +22,7 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-primary/95 backdrop-blur-sm border-b border-navy-light">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-primary/95 backdrop-blur-sm border-b border-charcoal-light">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
@@ -55,7 +56,7 @@ const Header = () => {
               onClick={() => scrollToSection("#contact")}
               className="bg-gold hover:bg-gold-dark text-primary font-semibold"
             >
-              Free Consultation
+              Request Consultation
             </Button>
           </div>
 
@@ -71,7 +72,7 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-navy-light">
+          <div className="md:hidden py-4 border-t border-charcoal-light">
             <nav className="flex flex-col gap-4">
               {navLinks.map((link) => (
                 <button
@@ -90,7 +91,7 @@ const Header = () => {
                 onClick={() => scrollToSection("#contact")}
                 className="bg-gold hover:bg-gold-dark text-primary font-semibold w-full mt-2"
               >
-                Free Consultation
+                Request Consultation
               </Button>
             </nav>
           </div>

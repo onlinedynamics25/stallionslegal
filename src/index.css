@@ -3,101 +3,102 @@
 @tailwind utilities;
 
 /* Stallions Sterling Law Firm Design System
+   Brand Colors: Black, White, and Gold
    All colors in HSL format */
 
 @layer base {
   :root {
-    /* Navy Blue - Primary Brand Color */
+    /* White Background */
     --background: 0 0% 100%;
-    --foreground: 220 30% 18%;
+    --foreground: 0 0% 8%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 30% 18%;
+    --card-foreground: 0 0% 8%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 30% 18%;
+    --popover-foreground: 0 0% 8%;
 
-    /* Dark Navy Primary */
-    --primary: 220 40% 18%;
+    /* Charcoal/Black Primary */
+    --primary: 0 0% 12%;
     --primary-foreground: 0 0% 100%;
 
     /* Light Gray Secondary */
-    --secondary: 220 15% 95%;
-    --secondary-foreground: 220 30% 18%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 12%;
 
-    --muted: 220 15% 95%;
-    --muted-foreground: 220 10% 45%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
 
     /* Gold Accent */
-    --accent: 42 55% 58%;
-    --accent-foreground: 220 40% 18%;
+    --accent: 43 74% 49%;
+    --accent-foreground: 0 0% 12%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 15% 88%;
-    --input: 220 15% 88%;
-    --ring: 42 55% 58%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 43 74% 49%;
 
     --radius: 0.5rem;
 
     /* Custom Law Firm Colors */
-    --navy: 220 40% 18%;
-    --navy-light: 220 35% 25%;
-    --navy-dark: 220 45% 12%;
-    --gold: 42 55% 58%;
-    --gold-light: 42 60% 70%;
-    --gold-dark: 42 50% 45%;
+    --charcoal: 0 0% 12%;
+    --charcoal-light: 0 0% 18%;
+    --charcoal-dark: 0 0% 8%;
+    --gold: 43 74% 49%;
+    --gold-light: 43 80% 60%;
+    --gold-dark: 43 70% 40%;
     --cream: 45 30% 96%;
 
     /* Sidebar colors */
-    --sidebar-background: 220 40% 18%;
+    --sidebar-background: 0 0% 12%;
     --sidebar-foreground: 0 0% 100%;
-    --sidebar-primary: 42 55% 58%;
-    --sidebar-primary-foreground: 220 40% 18%;
-    --sidebar-accent: 220 35% 25%;
+    --sidebar-primary: 43 74% 49%;
+    --sidebar-primary-foreground: 0 0% 12%;
+    --sidebar-accent: 0 0% 18%;
     --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 220 35% 25%;
-    --sidebar-ring: 42 55% 58%;
+    --sidebar-border: 0 0% 18%;
+    --sidebar-ring: 43 74% 49%;
   }
 
   .dark {
-    --background: 220 40% 12%;
+    --background: 0 0% 8%;
     --foreground: 0 0% 98%;
 
-    --card: 220 40% 15%;
+    --card: 0 0% 12%;
     --card-foreground: 0 0% 98%;
 
-    --popover: 220 40% 15%;
+    --popover: 0 0% 12%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 42 55% 58%;
-    --primary-foreground: 220 40% 12%;
+    --primary: 43 74% 49%;
+    --primary-foreground: 0 0% 8%;
 
-    --secondary: 220 35% 22%;
+    --secondary: 0 0% 18%;
     --secondary-foreground: 0 0% 98%;
 
-    --muted: 220 35% 22%;
-    --muted-foreground: 220 15% 65%;
+    --muted: 0 0% 18%;
+    --muted-foreground: 0 0% 65%;
 
-    --accent: 42 55% 58%;
-    --accent-foreground: 220 40% 12%;
+    --accent: 43 74% 49%;
+    --accent-foreground: 0 0% 8%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 220 35% 25%;
-    --input: 220 35% 25%;
-    --ring: 42 55% 58%;
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 43 74% 49%;
 
-    --sidebar-background: 220 45% 10%;
+    --sidebar-background: 0 0% 6%;
     --sidebar-foreground: 0 0% 98%;
-    --sidebar-primary: 42 55% 58%;
-    --sidebar-primary-foreground: 220 40% 12%;
-    --sidebar-accent: 220 35% 18%;
+    --sidebar-primary: 43 74% 49%;
+    --sidebar-primary-foreground: 0 0% 8%;
+    --sidebar-accent: 0 0% 12%;
     --sidebar-accent-foreground: 0 0% 98%;
-    --sidebar-border: 220 35% 18%;
-    --sidebar-ring: 42 55% 58%;
+    --sidebar-border: 0 0% 12%;
+    --sidebar-ring: 43 74% 49%;
   }
 }
 

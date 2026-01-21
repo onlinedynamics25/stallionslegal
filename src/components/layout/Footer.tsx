@@ -1,20 +1,23 @@
-import { Facebook, Twitter, Linkedin, Mail, Phone, MapPin } from "lucide-react";
+import { Linkedin, Twitter, Mail, Phone, MapPin } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const practiceAreas = [
-    "Corporate Law",
-    "Family Law",
-    "Criminal Defense",
-    "Real Estate",
-    "Tax Law",
+    "Corporate & Commercial Law",
+    "Property & Real Estate Law",
+    "Contract Law",
+    "Employment & Labour Law",
+    "Dispute Resolution",
+    "Legal Retainership",
+    "Regulatory Compliance",
   ];
 
   const quickLinks = [
     { name: "Home", href: "#home" },
     { name: "About Us", href: "#about" },
     { name: "Services", href: "#services" },
+    { name: "How We Work", href: "#process" },
     { name: "Contact Us", href: "#contact" },
   ];
 
@@ -36,7 +39,8 @@ const Footer = () => {
               <span className="text-sm font-sans tracking-widest uppercase">Sterling</span>
             </div>
             <p className="text-primary-foreground/70 text-sm leading-relaxed">
-              Your trusted partner for comprehensive legal solutions. We are committed to providing personalized service and achieving the best outcomes for our clients.
+              A client-focused law practice founded on the conviction that effective legal 
+              solutions must be both technically sound and relationally grounded.
             </p>
             <p className="text-gold italic text-sm">
               "Safe Solutions, Real Relationships"
@@ -45,24 +49,17 @@ const Footer = () => {
             <div className="flex items-center gap-4 pt-4">
               <a 
                 href="#" 
-                className="w-10 h-10 rounded-full bg-navy-light flex items-center justify-center hover:bg-gold hover:text-primary transition-colors"
+                className="w-10 h-10 rounded-full bg-charcoal-light flex items-center justify-center hover:bg-gold hover:text-primary transition-colors"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="h-5 w-5" />
               </a>
               <a 
                 href="#" 
-                className="w-10 h-10 rounded-full bg-navy-light flex items-center justify-center hover:bg-gold hover:text-primary transition-colors"
+                className="w-10 h-10 rounded-full bg-charcoal-light flex items-center justify-center hover:bg-gold hover:text-primary transition-colors"
                 aria-label="Twitter"
               >
                 <Twitter className="h-5 w-5" />
-              </a>
-              <a 
-                href="#" 
-                className="w-10 h-10 rounded-full bg-navy-light flex items-center justify-center hover:bg-gold hover:text-primary transition-colors"
-                aria-label="Facebook"
-              >
-                <Facebook className="h-5 w-5" />
               </a>
             </div>
           </div>
@@ -108,7 +105,7 @@ const Footer = () => {
               <li className="flex items-start gap-3">
                 <MapPin className="h-5 w-5 text-gold shrink-0 mt-0.5" />
                 <span className="text-primary-foreground/70 text-sm">
-                  Upperhill, Nairobi, Kenya
+                  Nigeria
                 </span>
               </li>
               <li>
@@ -128,7 +125,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-navy-light">
+        <div className="mt-12 pt-8 border-t border-charcoal-light">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-primary-foreground/60">
             <p>&copy; {currentYear} Stallions Sterling Law Firm. All rights reserved.</p>
             <div className="flex items-center gap-6">
