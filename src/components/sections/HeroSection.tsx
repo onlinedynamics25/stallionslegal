@@ -10,15 +10,21 @@ const HeroSection = () => {
   };
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center bg-primary overflow-hidden">
+    <section
+      id="home"
+      className="relative min-h-screen flex items-center bg-primary overflow-hidden"
+    >
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 2px 2px, hsl(var(--gold)) 1px, transparent 0)`,
-          backgroundSize: '40px 40px'
-        }} />
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `radial-gradient(circle at 2px 2px, hsl(var(--gold)) 1px, transparent 0)`,
+            backgroundSize: "40px 40px",
+          }}
+        />
       </div>
-      
+
       {/* Decorative Elements */}
       <div className="absolute top-20 right-10 w-64 h-64 bg-gold/5 rounded-full blur-3xl" />
       <div className="absolute bottom-20 left-10 w-96 h-96 bg-gold/5 rounded-full blur-3xl" />
@@ -29,7 +35,9 @@ const HeroSection = () => {
           <div className="space-y-8">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-navy-light border border-gold/20">
               <Scale className="h-4 w-4 text-gold" />
-              <span className="text-sm text-gold">Trusted Legal Partners Since 2024</span>
+              <span className="text-sm text-gold">
+                Trusted Legal Partners Since 2024
+              </span>
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-primary-foreground leading-tight">
@@ -39,13 +47,13 @@ const HeroSection = () => {
             </h1>
 
             <p className="text-lg text-primary-foreground/80 max-w-lg leading-relaxed">
-              Delivering personalized legal solutions with integrity and excellence. 
-              We protect your rights and guide you through complex legal matters 
-              with expertise and compassion.
+              Delivering personalized legal solutions with integrity and
+              excellence. We protect your rights and guide you through complex
+              legal matters with expertise and compassion.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button 
+              <Button
                 onClick={() => scrollToSection("#contact")}
                 size="lg"
                 className="bg-gold hover:bg-gold-dark text-primary font-semibold px-8"
@@ -53,11 +61,11 @@ const HeroSection = () => {
                 Free Consultation
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
-              <Button 
+              <Button
                 onClick={() => scrollToSection("#services")}
                 variant="outline"
                 size="lg"
-                className="border-gold/40 text-primary-foreground hover:bg-navy-light hover:text-gold"
+                className="border-gold/40 text-accent-foreground hover:bg-navy-light hover:text-gold"
               >
                 Our Services
               </Button>
@@ -67,15 +75,21 @@ const HeroSection = () => {
             <div className="grid grid-cols-3 gap-8 pt-8 border-t border-navy-light">
               <div>
                 <p className="text-3xl font-serif font-bold text-gold">500+</p>
-                <p className="text-sm text-primary-foreground/60">Cases Handled</p>
+                <p className="text-sm text-primary-foreground/60">
+                  Cases Handled
+                </p>
               </div>
               <div>
                 <p className="text-3xl font-serif font-bold text-gold">98%</p>
-                <p className="text-sm text-primary-foreground/60">Success Rate</p>
+                <p className="text-sm text-primary-foreground/60">
+                  Success Rate
+                </p>
               </div>
               <div>
                 <p className="text-3xl font-serif font-bold text-gold">15+</p>
-                <p className="text-sm text-primary-foreground/60">Expert Attorneys</p>
+                <p className="text-sm text-primary-foreground/60">
+                  Expert Attorneys
+                </p>
               </div>
             </div>
           </div>
@@ -92,7 +106,9 @@ const HeroSection = () => {
             {/* Floating badges */}
             <div className="absolute top-10 right-10 bg-navy-light/90 backdrop-blur-sm rounded-lg p-4 border border-gold/20">
               <p className="text-gold font-serif font-bold">24/7</p>
-              <p className="text-xs text-primary-foreground/60">Legal Support</p>
+              <p className="text-xs text-primary-foreground/60">
+                Legal Support
+              </p>
             </div>
             <div className="absolute bottom-10 left-0 bg-navy-light/90 backdrop-blur-sm rounded-lg p-4 border border-gold/20">
               <p className="text-gold font-serif font-bold">Award</p>
