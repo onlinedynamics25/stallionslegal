@@ -6,7 +6,7 @@ const AboutSection = () => {
     {
       icon: Award,
       title: "Excellence",
-      description: "We strive for excellence in every case we handle.",
+      description: "We strive for excellence in every matter we handle.",
     },
     {
       icon: Users,
@@ -41,16 +41,23 @@ const AboutSection = () => {
             </h2>
 
             <p className="text-muted-foreground leading-relaxed">
-              Founded in 2024, Stallions Sterling Law Firm has quickly established itself as a 
-              premier legal practice in Kenya. We are dedicated to providing exceptional legal 
-              services with a focus on building lasting relationships with our clients.
+              Stallions Sterling Law Firm is a client-focused law practice founded on the conviction 
+              that effective legal solutions must be both technically sound and relationally grounded. 
+              Established in 2024, we were created to bridge a critical gap in legal service delivery: 
+              the gap between legal knowledge and practical, dependable outcomes; between transactional 
+              engagements and enduring professional relationships.
             </p>
 
             <p className="text-muted-foreground leading-relaxed">
-              Our team of experienced attorneys brings diverse expertise across multiple practice 
-              areas, ensuring comprehensive legal support for individuals and businesses alike. 
-              We believe in delivering personalized solutions that address the unique needs of 
-              each client.
+              Our philosophy is simple but uncompromising. The law must protect, clarify, and enable 
+              progress. We approach every brief with a dual responsibility — to provide safe, risk-aware 
+              legal solutions and to build real relationships anchored on trust, clarity, and accountability.
+            </p>
+
+            <p className="text-muted-foreground leading-relaxed">
+              At Stallions Sterling Law Firm, we do not merely react to legal problems. We anticipate risk, 
+              structure protection, and guide clients through complex decisions with precision and foresight. 
+              We see our clients not as files, but as partners whose interests we are duty-bound to protect.
             </p>
 
             <blockquote className="border-l-4 border-gold pl-6 italic text-lg text-primary font-serif">

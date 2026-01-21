@@ -1,4 +1,4 @@
-import { Building2, Users, Shield, Home, Calculator, ArrowRight } from "lucide-react";
+import { Building2, Home, FileText, Users, Scale, Briefcase, ShieldCheck, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 
@@ -6,28 +6,38 @@ const PracticeAreasSection = () => {
   const practiceAreas = [
     {
       icon: Building2,
-      title: "Corporate Law",
-      description: "Comprehensive legal solutions for businesses, including formations, contracts, mergers, and compliance matters.",
-    },
-    {
-      icon: Users,
-      title: "Family Law",
-      description: "Compassionate representation in divorce, custody, adoption, and other family-related legal matters.",
-    },
-    {
-      icon: Shield,
-      title: "Criminal Defense",
-      description: "Vigorous defense of your rights in criminal proceedings, from minor offenses to serious charges.",
+      title: "Corporate & Commercial Law",
+      description: "Company formation, corporate governance, contracts, commercial advisory, and compliance.",
     },
     {
       icon: Home,
-      title: "Real Estate",
-      description: "Expert guidance in property transactions, title disputes, landlord-tenant matters, and development projects.",
+      title: "Property & Real Estate Law",
+      description: "Property transactions, leases, tenancy matters, property advisory, and related disputes.",
     },
     {
-      icon: Calculator,
-      title: "Tax Law",
-      description: "Strategic tax planning, compliance assistance, and representation in disputes with tax authorities.",
+      icon: FileText,
+      title: "Contract Law",
+      description: "Drafting, vetting, negotiation, enforcement, and risk review of commercial and private contracts.",
+    },
+    {
+      icon: Users,
+      title: "Employment & Labour Law",
+      description: "Employment contracts, HR advisory, workplace compliance, and labour-related disputes.",
+    },
+    {
+      icon: Scale,
+      title: "Dispute Resolution & Advisory",
+      description: "Pre-litigation advisory, demand notices, negotiation, and strategic dispute management.",
+    },
+    {
+      icon: Briefcase,
+      title: "Legal Retainership Services",
+      description: "Ongoing legal support for businesses, SMEs, and professionals through structured retainership arrangements.",
+    },
+    {
+      icon: ShieldCheck,
+      title: "Regulatory & Compliance Advisory",
+      description: "Guidance on statutory compliance, regulatory exposure, and legal risk mitigation.",
     },
   ];
 
@@ -42,14 +52,15 @@ const PracticeAreasSection = () => {
             Comprehensive Legal Services
           </h2>
           <p className="text-muted-foreground mt-4">
-            We offer a wide range of legal services to meet your needs, 
-            backed by expertise and dedication to achieving the best outcomes.
+            Stallions Sterling Law Firm provides structured legal services across advisory, 
+            transactional, and dispute-resolution mandates. Each service is delivered with 
+            clarity of scope, defined process, and professional accountability.
           </p>
         </div>
 
         {/* Practice Areas Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {practiceAreas.map((area, index) => (
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {practiceAreas.map((area) => (
             <Card 
               key={area.title}
               className="group hover:shadow-lg transition-all duration-300 border-border hover:border-gold/30 bg-background"
@@ -58,7 +69,7 @@ const PracticeAreasSection = () => {
                 <div className="w-14 h-14 rounded-lg bg-primary flex items-center justify-center mb-6 group-hover:bg-gold transition-colors duration-300">
                   <area.icon className="h-7 w-7 text-gold group-hover:text-primary transition-colors duration-300" />
                 </div>
-                <h3 className="font-serif font-semibold text-xl text-primary mb-3">
+                <h3 className="font-serif font-semibold text-lg text-primary mb-3">
                   {area.title}
                 </h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">
