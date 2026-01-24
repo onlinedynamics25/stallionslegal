@@ -8,36 +8,36 @@
 
 @layer base {
   :root {
-    /* White Background */
-    --background: 0 0% 100%;
-    --foreground: 0 0% 8%;
+    /* Cream/Off-White Background */
+    --background: 45 30% 96%;
+    --foreground: 0 0% 12%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 8%;
+    --card: 45 25% 98%;
+    --card-foreground: 0 0% 12%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 8%;
+    --popover: 45 25% 98%;
+    --popover-foreground: 0 0% 12%;
 
     /* Charcoal/Black Primary */
     --primary: 0 0% 12%;
-    --primary-foreground: 0 0% 100%;
+    --primary-foreground: 45 30% 96%;
 
-    /* Light Gray Secondary */
-    --secondary: 0 0% 96%;
+    /* Warm Secondary */
+    --secondary: 45 20% 92%;
     --secondary-foreground: 0 0% 12%;
 
-    --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 45%;
+    --muted: 45 15% 90%;
+    --muted-foreground: 0 0% 40%;
 
     /* Gold Accent */
     --accent: 43 74% 49%;
     --accent-foreground: 0 0% 12%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive-foreground: 45 30% 96%;
 
-    --border: 0 0% 90%;
-    --input: 0 0% 90%;
+    --border: 45 15% 85%;
+    --input: 45 15% 88%;
     --ring: 43 74% 49%;
 
     --radius: 0.5rem;
