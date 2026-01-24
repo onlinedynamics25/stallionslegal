@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Menu, X, Phone } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -88,6 +89,7 @@ const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden md:flex items-center gap-4">
+            <ThemeToggle />
             <a
               href="tel:+254719407999"
               className="flex items-center gap-2 text-primary-foreground/80 hover:text-gold transition-colors"
@@ -145,6 +147,10 @@ const Header = () => {
                   </Link>
                 )
               ))}
+              <div className="flex items-center gap-2 py-2">
+                <span className="text-primary-foreground/60 text-sm">Theme:</span>
+                <ThemeToggle />
+              </div>
               <a
                 href="tel:+254719407999"
                 className="flex items-center gap-2 text-primary-foreground/80 hover:text-gold transition-colors py-2"
