@@ -11,15 +11,10 @@ const CTASection = () => {
 
   return (
     <section className="py-24 bg-primary relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `radial-gradient(circle at 2px 2px, hsl(var(--gold)) 1px, transparent 0)`,
-            backgroundSize: "30px 30px",
-          }}
-        />
+      {/* Gold Accent Lines */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-gold/10 to-transparent" />
+        <div className="absolute top-0 right-1/3 w-px h-full bg-gradient-to-b from-transparent via-gold/10 to-transparent" />
       </div>
 
       {/* Decorative Elements */}
@@ -29,14 +24,15 @@ const CTASection = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-primary-foreground mb-6">
-            Ready to Discuss Your{" "}
-            <span className="text-gold">Legal Needs?</span>
+            Legal Advice You Can{" "}
+            <span className="text-gold">Rely On</span>
           </h2>
 
           <p className="text-lg text-primary-foreground/80 mb-10 max-w-2xl mx-auto">
-            Take the first step towards resolving your legal matters. Our
-            experienced attorneys are here to help you navigate through any
-            legal challenge.
+            Whether you require one-off legal guidance or ongoing legal support, 
+            our approach is deliberate, transparent, and outcome-driven. We help you 
+            understand your legal position, manage risk, and make informed decisions 
+            with confidence.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -45,7 +41,7 @@ const CTASection = () => {
               size="lg"
               className="bg-gold hover:bg-gold-dark text-primary font-semibold px-8 w-full sm:w-auto"
             >
-              Schedule a Free Consultation
+              Book an Appointment
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
 
@@ -53,12 +49,34 @@ const CTASection = () => {
               <Button
                 variant="outline"
                 size="lg"
-                className="border-gold/40 text-accent-foreground hover:bg-navy-light hover:text-gold w-full sm:w-auto"
+                className="border-gold/40 text-primary-foreground hover:bg-charcoal-light hover:text-gold w-full sm:w-auto"
               >
                 <Phone className="mr-2 h-5 w-5" />
                 Call Us Now
               </Button>
             </a>
+          </div>
+        </div>
+
+        {/* Secondary CTA */}
+        <div className="mt-16 pt-12 border-t border-charcoal-light">
+          <div className="max-w-3xl mx-auto text-center">
+            <h3 className="text-2xl font-serif font-bold text-primary-foreground mb-4">
+              Built for Long-Term Legal Support
+            </h3>
+            <p className="text-primary-foreground/70 mb-6">
+              Our retainership model is designed for businesses and professionals who value 
+              consistency, accessibility, and proactive legal guidance. We work alongside you — 
+              anticipating risk, maintaining compliance, and protecting your interests as your 
+              affairs evolve.
+            </p>
+            <Button
+              variant="outline"
+              className="border-gold/40 text-primary-foreground hover:bg-charcoal-light hover:text-gold"
+            >
+              View Retainership Services
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
           </div>
         </div>
       </div>

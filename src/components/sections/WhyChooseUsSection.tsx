@@ -1,26 +1,31 @@
-import { CheckCircle2, Shield, Clock, MessageSquare } from "lucide-react";
+import { Shield, Users, FileText, Lightbulb, Scale } from "lucide-react";
 
 const WhyChooseUsSection = () => {
   const benefits = [
     {
       icon: Shield,
-      title: "Experienced Attorneys",
-      description: "Our team comprises seasoned legal professionals with decades of combined experience across diverse practice areas.",
+      title: "Safe Solutions",
+      description: "We prioritise risk identification, prevention, and legal protection. Our advice is conservative where necessary, strategic where required, and always grounded in law and commercial reality.",
     },
     {
-      icon: CheckCircle2,
-      title: "Client-Focused Approach",
-      description: "We prioritize understanding your unique situation and tailoring our legal strategies to meet your specific needs and goals.",
+      icon: Users,
+      title: "Real Relationships",
+      description: "We build long-term professional relationships, not one-off transactions. Clients have direct access, clear communication, and consistent legal guidance.",
     },
     {
-      icon: Clock,
-      title: "Proven Track Record",
-      description: "With a 98% success rate, we have consistently delivered favorable outcomes for our clients in complex legal matters.",
+      icon: FileText,
+      title: "Structured Legal Thinking",
+      description: "Our work is process-driven, documented, and auditable — ensuring reliability, continuity, and clarity in every engagement.",
     },
     {
-      icon: MessageSquare,
-      title: "Transparent Communication",
-      description: "We keep you informed at every step, ensuring you understand your options and the progress of your case.",
+      icon: Lightbulb,
+      title: "Practical Legal Insight",
+      description: "We do not offer abstract legal theory. We provide implementable legal solutions that align with real-world business, property, and personal realities.",
+    },
+    {
+      icon: Scale,
+      title: "Integrity & Professional Discipline",
+      description: "We operate with confidentiality, ethical rigour, and respect for both the letter and spirit of the law.",
     },
   ];
 
@@ -40,11 +45,11 @@ const WhyChooseUsSection = () => {
         </div>
 
         {/* Benefits Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {benefits.map((benefit, index) => (
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {benefits.map((benefit) => (
             <div 
               key={benefit.title}
-              className="text-center group"
+              className="text-center group p-6 rounded-lg hover:bg-cream transition-colors"
             >
               <div className="relative inline-flex items-center justify-center mb-6">
                 {/* Outer ring */}
