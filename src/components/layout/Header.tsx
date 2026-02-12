@@ -19,7 +19,7 @@ const Header = () => {
 
   const handleNavClick = (href: string) => {
     setIsMenuOpen(false);
-    
+
     if (href.startsWith("/#")) {
       const sectionId = href.substring(1);
       if (location.pathname === "/") {
@@ -62,7 +62,7 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
+            {navLinks.map((link) =>
               link.href.startsWith("/#") ? (
                 <button
                   key={link.name}
@@ -83,8 +83,8 @@ const Header = () => {
                 >
                   {link.name}
                 </Link>
-              )
-            ))}
+              ),
+            )}
           </nav>
 
           {/* CTA Button */}
@@ -123,7 +123,7 @@ const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden py-4 border-t border-charcoal-light">
             <nav className="flex flex-col gap-4">
-              {navLinks.map((link) => (
+              {navLinks.map((link) =>
                 link.href.startsWith("/#") ? (
                   <button
                     key={link.name}
@@ -145,10 +145,12 @@ const Header = () => {
                   >
                     {link.name}
                   </Link>
-                )
-              ))}
+                ),
+              )}
               <div className="flex items-center gap-2 py-2">
-                <span className="text-primary-foreground/60 text-sm">Theme:</span>
+                <span className="text-primary-foreground/60 text-sm">
+                  Theme:
+                </span>
                 <ThemeToggle />
               </div>
               <a
