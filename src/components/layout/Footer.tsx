@@ -34,13 +34,22 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Company Info */}
           <div className="space-y-4">
-            <div className="flex flex-col leading-tight">
-              <span className="text-2xl font-serif font-bold text-gold">
-                Stallions
-              </span>
-              <span className="text-sm font-sans tracking-widest uppercase">
-                Sterling
-              </span>
+            <div className="flex items-center gap-2">
+              <img
+                src="/logo/rounded.png"
+                alt="Stallions Legal Logo"
+                width={48}
+                height={48}
+                className="object-contain"
+              />
+              <div className="flex flex-col leading-tight">
+                <span className="text-2xl font-serif font-bold text-gold">
+                  Stallions
+                </span>
+                <span className="text-sm font-sans tracking-widest uppercase">
+                  Sterling
+                </span>
+              </div>
             </div>
             <p className="text-primary-foreground/70 text-sm leading-relaxed">
               A client-focused law practice founded on the conviction that
@@ -116,7 +125,8 @@ const Footer = () => {
               <li className="flex items-start gap-3">
                 <MapPin className="h-5 w-5 text-gold shrink-0 mt-0.5" />
                 <span className="text-primary-foreground/70 text-sm">
-                  Nigeria
+                  No. 7, Adepate Abebi Crescent, Off Idi-Ishin Police Station,
+                  Jericho Road, Ibadan, Oyo State, Nigeria.
                 </span>
               </li>
               <li>
@@ -125,17 +135,50 @@ const Footer = () => {
                   className="flex items-center gap-3 text-primary-foreground/70 hover:text-gold transition-colors"
                 >
                   <Phone className="h-5 w-5 text-gold shrink-0" />
-                  <span className="text-sm">+254 719 407 999</span>
+                  <span className="text-sm">+234 803 242 9497</span>
                 </a>
               </li>
-              <li>
-                <a
-                  href="mailto:info@stallionssterling.com"
-                  className="flex items-center gap-3 text-primary-foreground/70 hover:text-gold transition-colors"
-                >
-                  <Mail className="h-5 w-5 text-gold shrink-0" />
-                  <span className="text-sm">info@stallionssterling.com</span>
-                </a>
+              <li className="flex items-start gap-3 text-primary-foreground/70">
+                <Mail className="h-5 w-5 text-gold shrink-0" />
+                <div className="flex flex-col">
+                  <a
+                    href="mailto:stallionslegal@gmail.com"
+                    className=" hover:text-gold transition-colors"
+                  >
+                    stallionslegal@gmail.com
+                  </a>
+
+                  {/* Departmental emails */}
+                  <div className="flex flex-col text-sm">
+                    <span className="text-sm text-gold opacity-60">
+                      Department Contacts:
+                    </span>
+                    <a
+                      href="mailto:info@stallionssterling.com"
+                      className=" hover:text-gold transition-colors"
+                    >
+                      info@stallionslegal.com
+                    </a>
+                    <a
+                      href="mailto:consultation@stallionssterling.com"
+                      className=" hover:text-gold transition-colors"
+                    >
+                      consultation@stallionslegal.com
+                    </a>
+                    <a
+                      href="mailto:support@stallionssterling.com"
+                      className=" hover:text-gold transition-colors"
+                    >
+                      supports@stallionslegal.com
+                    </a>
+                    <a
+                      href="mailto:matters@stallionssterling.com"
+                      className=" hover:text-gold transition-colors"
+                    >
+                      matters@stallionslegal.com
+                    </a>
+                  </div>
+                </div>
               </li>
             </ul>
           </div>

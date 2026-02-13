@@ -50,13 +50,22 @@ const Header = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
-            <div className="flex flex-col leading-tight">
-              <span className="text-2xl font-serif font-bold text-gold">
-                Stallions
-              </span>
-              <span className="text-sm font-sans text-primary-foreground tracking-widest uppercase">
-                Sterling
-              </span>
+            <div className="flex items-center gap-2">
+              <img
+                src="/logo/rounded.png"
+                alt="Stallions Legal Logo"
+                width={48}
+                height={48}
+                className="object-contain"
+              />
+              <div className="flex flex-col leading-tight">
+                <span className="text-2xl font-serif font-bold text-gold">
+                  Stallions
+                </span>
+                <span className="text-sm font-sans text-primary-foreground tracking-widest uppercase">
+                  Sterling
+                </span>
+              </div>
             </div>
           </Link>
 
@@ -89,7 +98,7 @@ const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden md:flex items-center gap-4">
-            <ThemeToggle />
+            {/* <ThemeToggle /> */}
             <a
               href="tel:+254719407999"
               className="flex items-center gap-2 text-primary-foreground/80 hover:text-gold transition-colors"

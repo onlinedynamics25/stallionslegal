@@ -69,7 +69,7 @@ const HeroSection = () => {
                 onClick={() => scrollToSection("#services")}
                 variant="outline"
                 size="lg"
-                className="border-gold/40 text-primary-foreground hover:bg-charcoal-light hover:text-gold"
+                className="border-gold/40 text-primary hover:bg-charcoal-light hover:text-gold"
               >
                 Explore Our Practice Areas
               </Button>
