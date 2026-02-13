@@ -100,11 +100,11 @@ const Header = () => {
           <div className="hidden md:flex items-center gap-4">
             <ThemeToggle />
             <a
-              href="tel:+254719407999"
+              href="tel:+2348032429497"
               className="flex items-center gap-2 text-primary-foreground/80 hover:text-gold transition-colors"
             >
               <Phone className="h-4 w-4" />
-              <span className="text-sm">+254 719 407 999</span>
+              <span className="text-sm">+234 803 242 9497</span>
             </a>
             <Button
               onClick={() => handleNavClick("/#contact")}
@@ -163,11 +163,11 @@ const Header = () => {
                 <ThemeToggle />
               </div>
               <a
-                href="tel:+254719407999"
+                href="tel:+2348032429497"
                 className="flex items-center gap-2 text-primary-foreground/80 hover:text-gold transition-colors py-2"
               >
                 <Phone className="h-4 w-4" />
-                <span>+254 719 407 999</span>
+                <span>+234 803 242 9497</span>
               </a>
               <Button
                 onClick={() => handleNavClick("/#contact")}

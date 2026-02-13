@@ -163,11 +163,11 @@ const Footer = () => {
                   {departmentMail.map((mails) => (
                     <li
                       key={mails}
-                      className="ext-primary-foreground/70 text-sm"
+                      className="text-primary-foreground/70 text-sm"
                     >
                       <a
                         href={`mailto:${mails}`}
-                        className="t hover:text-gold transition-colors"
+                        className=" hover:text-gold transition-colors"
                       >
                         {mails}
                       </a>

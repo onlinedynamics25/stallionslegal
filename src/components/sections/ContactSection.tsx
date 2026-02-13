@@ -193,7 +193,7 @@ const ContactSection = () => {
                           <FormControl>
                             <Input
                               type="tel"
-                              placeholder="+254 700 000 000"
+                              placeholder="+234 700 000 0000"
                               {...field}
                             />
                           </FormControl>
