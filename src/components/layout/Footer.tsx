@@ -21,6 +21,13 @@ const Footer = () => {
     { name: "Contact Us", href: "#contact" },
   ];
 
+  const departmentMail = [
+    "info@stallionssterling.com",
+    "consultation@stallionslegal.com",
+    "supports@stallionslegal.com",
+    "matters@stallionslegal.com",
+  ];
+
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
@@ -140,45 +147,33 @@ const Footer = () => {
               </li>
               <li className="flex items-start gap-3 text-primary-foreground/70">
                 <Mail className="h-5 w-5 text-gold shrink-0" />
-                <div className="flex flex-col">
-                  <a
-                    href="mailto:stallionslegal@gmail.com"
-                    className=" hover:text-gold transition-colors"
-                  >
-                    stallionslegal@gmail.com
-                  </a>
-
-                  {/* Departmental emails */}
-                  <div className="flex flex-col text-sm">
-                    <span className="text-sm text-gold opacity-60">
-                      Department Contacts:
-                    </span>
-                    <a
-                      href="mailto:info@stallionssterling.com"
-                      className=" hover:text-gold transition-colors"
+                <a
+                  href="mailto:stallionslegal@gmail.com"
+                  className="text-primary-foreground/70 text-sm hover:text-gold transition-colors"
+                >
+                  stallionslegal@gmail.com
+                </a>
+              </li>
+              {/* Departmental emails */}
+              <li>
+                <h4 className="text-lg font-serif font-semibold mb-1 text-gold">
+                  Department Contacts:
+                </h4>
+                <ul className="space-y-1">
+                  {departmentMail.map((mails) => (
+                    <li
+                      key={mails}
+                      className="ext-primary-foreground/70 text-sm"
                     >
-                      info@stallionslegal.com
-                    </a>
-                    <a
-                      href="mailto:consultation@stallionssterling.com"
-                      className=" hover:text-gold transition-colors"
-                    >
-                      consultation@stallionslegal.com
-                    </a>
-                    <a
-                      href="mailto:support@stallionssterling.com"
-                      className=" hover:text-gold transition-colors"
-                    >
-                      supports@stallionslegal.com
-                    </a>
-                    <a
-                      href="mailto:matters@stallionssterling.com"
-                      className=" hover:text-gold transition-colors"
-                    >
-                      matters@stallionslegal.com
-                    </a>
-                  </div>
-                </div>
+                      <a
+                        href={`mailto:${mails}`}
+                        className="t hover:text-gold transition-colors"
+                      >
+                        {mails}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
               </li>
             </ul>
           </div>

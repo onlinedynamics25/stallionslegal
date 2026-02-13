@@ -98,7 +98,7 @@ const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden md:flex items-center gap-4">
-            {/* <ThemeToggle /> */}
+            <ThemeToggle />
             <a
               href="tel:+254719407999"
               className="flex items-center gap-2 text-primary-foreground/80 hover:text-gold transition-colors"
