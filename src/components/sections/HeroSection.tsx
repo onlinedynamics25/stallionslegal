@@ -19,18 +19,18 @@ const HeroSection = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center bg-primary overflow-hidden"
+      className="relative min-h-screen flex items-center bg-primary dark:bg-foreground overflow-hidden"
     >
       {/* Gold Accent Lines */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-gold/20 to-transparent" />
-        <div className="absolute top-0 right-1/3 w-px h-full bg-gradient-to-b from-transparent via-gold/10 to-transparent" />
-        <div className="absolute top-1/3 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold/10 to-transparent" />
+        <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-gold/20 dark:via-charcoal/20 to-transparent" />
+        <div className="absolute top-0 right-1/3 w-px h-full bg-gradient-to-b from-transparent via-gold/10 dark:via-charcoal/10 to-transparent" />
+        <div className="absolute top-1/3 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold/10 dark:via-charcoal/10 to-transparent" />
       </div>
 
       {/* Decorative Elements */}
-      <div className="absolute top-20 right-10 w-64 h-64 bg-gold/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 left-10 w-96 h-96 bg-gold/5 rounded-full blur-3xl" />
+      <div className="absolute top-20 right-10 w-64 h-64 bg-gold/5 dark:bg-charcoal/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 left-10 w-96 h-96 bg-gold/5 dark:bg-charcoal/5 rounded-full blur-3xl" />
 
       <div className="container mx-auto px-4 pt-24 pb-16 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -100,17 +100,17 @@ const HeroSection = () => {
 
           {/* Hero Image/Visual */}
           <div className="hidden lg:flex justify-center items-center relative">
-            <div className="w-80 h-80 rounded-full border-2 border-gold/20 flex items-center justify-center">
-              <div className="w-64 h-64 rounded-full border-2 border-gold/30 flex items-center justify-center">
-                <div className="w-48 h-48 rounded-full bg-gold/10 flex items-center justify-center">
-                  <Scale className="w-24 h-24 text-gold" />
+            <div className="w-80 h-80 rounded-full border-2 border-gold/20 dark:border-charcoal/20 flex items-center justify-center">
+              <div className="w-64 h-64 rounded-full border-2 border-gold/30 dark:border-charcoal/30 flex items-center justify-center">
+                <div className="w-48 h-48 rounded-full bg-gold/10 dark:bg-charcoal/10 flex items-center justify-center">
+                  <Scale className="w-24 h-24 text-gold dark:text-charcoal" />
                 </div>
               </div>
             </div>
             {/* Floating badges */}
-            <div className="absolute top-10 right-10 bg-charcoal-light/90 backdrop-blur-sm rounded-lg p-4 border border-gold/20">
+            <div className="absolute top-10 right-10 bg-charcoal-light/90 dark:bg-gold-light/10 backdrop-blur-sm rounded-lg p-4 border border-gold/20 dark:border-charcoal/20 ">
               <p className="text-gold font-serif font-bold">Advisory-Led</p>
-              <p className="text-xs text-primary-foreground/60">
+              <p className="text-xs text-primary-foreground/60 dark:text-primary-background/60 ">
                 Service Model
               </p>
             </div>
