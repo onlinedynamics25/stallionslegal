@@ -3,6 +3,7 @@ import { Menu, X, Phone } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import ThemeToggle from "@/components/ThemeToggle";
+import { useTheme } from "next-themes";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -16,6 +17,7 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const theme = useTheme().theme === "dark" ? "dark" : "light";
 
   const handleNavClick = (href: string) => {
     setIsMenuOpen(false);
@@ -45,14 +47,14 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-primary/95 backdrop-blur-sm border-b border-charcoal-light">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 text-foreground backdrop-blur-sm border-b border-charcoal-light">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
             <div className="flex items-center gap-2">
               <img
-                src="/logo/rounded.png"
+                src={theme === "dark" ? "/logo/rounded.png" : "/logo/nobg.png"}
                 alt="Stallions Legal Logo"
                 width={48}
                 height={48}
@@ -62,7 +64,7 @@ const Header = () => {
                 <span className="text-2xl font-serif font-bold text-gold">
                   Stallions
                 </span>
-                <span className="text-sm font-sans text-primary-foreground tracking-widest uppercase">
+                <span className="text-sm font-sans text-foreground tracking-widest uppercase">
                   Sterling
                 </span>
               </div>
@@ -76,7 +78,7 @@ const Header = () => {
                 <button
                   key={link.name}
                   onClick={() => handleNavClick(link.href)}
-                  className="text-primary-foreground/80 hover:text-gold transition-colors font-medium"
+                  className="text-foreground/80 hover:text-gold transition-colors font-medium"
                 >
                   {link.name}
                 </button>
@@ -87,7 +89,7 @@ const Header = () => {
                   className={`transition-colors font-medium ${
                     isActive(link.href)
                       ? "text-gold"
-                      : "text-primary-foreground/80 hover:text-gold"
+                      : "text-foreground/80 hover:text-gold"
                   }`}
                 >
                   {link.name}
@@ -101,14 +103,14 @@ const Header = () => {
             <ThemeToggle />
             <a
               href="tel:+2348032429497"
-              className="flex items-center gap-2 text-primary-foreground/80 hover:text-gold transition-colors"
+              className="flex items-center gap-2 text-foreground/80 hover:text-gold transition-colors"
             >
               <Phone className="h-4 w-4" />
               <span className="text-sm">+234 803 242 9497</span>
             </a>
             <Button
               onClick={() => handleNavClick("/#contact")}
-              className="bg-gold hover:bg-gold-dark text-primary font-semibold"
+              className="bg-gold hover:bg-background text-primary-foreground hover:border-2 hover:border-gold/50 hover:text-gold/80 font-semibold"
             >
               Request Consultation
             </Button>
@@ -116,7 +118,7 @@ const Header = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-primary-foreground"
+            className="md:hidden text-foreground"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -137,7 +139,7 @@ const Header = () => {
                   <button
                     key={link.name}
                     onClick={() => handleNavClick(link.href)}
-                    className="text-primary-foreground/80 hover:text-gold transition-colors font-medium text-left py-2"
+                    className="text-foreground/80 hover:text-gold transition-colors font-medium text-left py-2"
                   >
                     {link.name}
                   </button>
@@ -149,7 +151,7 @@ const Header = () => {
                     className={`transition-colors font-medium text-left py-2 ${
                       isActive(link.href)
                         ? "text-gold"
-                        : "text-primary-foreground/80 hover:text-gold"
+                        : "text-foreground/80 hover:text-gold"
                     }`}
                   >
                     {link.name}
@@ -157,21 +159,19 @@ const Header = () => {
                 ),
               )}
               <div className="flex items-center gap-2 py-2">
-                <span className="text-primary-foreground/60 text-sm">
-                  Theme:
-                </span>
+                <span className="text-foreground/60 text-sm">Theme:</span>
                 <ThemeToggle />
               </div>
               <a
                 href="tel:+2348032429497"
-                className="flex items-center gap-2 text-primary-foreground/80 hover:text-gold transition-colors py-2"
+                className="flex items-center gap-2 text-foreground/80 hover:text-gold transition-colors py-2"
               >
                 <Phone className="h-4 w-4" />
                 <span>+234 803 242 9497</span>
               </a>
               <Button
                 onClick={() => handleNavClick("/#contact")}
-                className="bg-gold hover:bg-gold-dark text-primary font-semibold w-full mt-2"
+                className="bg-gold hover:bg-gold-dark text-primary hover:text-primary-foreground font-semibold w-full mt-2"
               >
                 Request Consultation
               </Button>
