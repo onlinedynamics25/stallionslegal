@@ -117,7 +117,7 @@ const ContactSection = () => {
             Get In Touch
           </span>
           <div className="w-12 h-1 bg-gold mt-2 mx-auto" />
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary mt-6">
+          <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground mt-6">
             Contact Us
           </h2>
           <p className="text-muted-foreground mt-4">
@@ -129,7 +129,7 @@ const ContactSection = () => {
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Form */}
           <div className="bg-card p-8 rounded-lg shadow-sm border border-border">
-            <h3 className="text-xl font-serif font-semibold text-primary mb-6">
+            <h3 className="text-xl font-serif font-semibold text-foreground mb-6">
               Send Us a Message
             </h3>
 
@@ -138,7 +138,7 @@ const ContactSection = () => {
                 <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4">
                   <CheckCircle2 className="h-8 w-8 text-green-600" />
                 </div>
-                <h4 className="text-lg font-semibold text-primary mb-2">
+                <h4 className="text-lg font-semibold text-foreground mb-2">
                   Thank You!
                 </h4>
                 <p className="text-muted-foreground">
@@ -223,7 +223,7 @@ const ContactSection = () => {
 
                   <Button
                     type="submit"
-                    className="w-full bg-gold hover:bg-gold-dark text-primary font-semibold"
+                    className="w-full bg-gold hover:bg-gold-dark text-charcoal font-semibold"
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? (
@@ -250,7 +250,7 @@ const ContactSection = () => {
                 {contactInfo.map((info) => (
                   <div key={info.title} className="flex items-start gap-4">
                     <div className="w-12 h-12 rounded-lg bg-primary flex items-center justify-center shrink-0">
-                      <info.icon className="h-5 w-5 text-gold" />
+                      <info.icon className="h-5 w-5 text-gold dark:text-charcoal " />
                     </div>
                     <div>
                       <h4 className="font-semibold text-primary">
