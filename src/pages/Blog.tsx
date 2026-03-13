@@ -50,10 +50,10 @@ const Blog = () => {
       <Header />
 
       {/* Hero */}
-      <section className="pt-32 pb-16 bg-primary text-primary-foreground">
+      <section className="pt-32 pb-16 bg-primary text-background">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4">
-            Our <span className="text-gold">Blog</span>
+            Our <span className="text-gold dark:text-cream">Blog</span>
           </h1>
           <p className="text-primary-foreground/70 max-w-2xl mx-auto text-lg">
             Insights, updates, and legal perspectives from Stallions Sterling.
