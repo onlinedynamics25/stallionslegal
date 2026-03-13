@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Linkedin, Twitter, Mail, Phone, MapPin } from "lucide-react";
 import { useTheme } from "next-themes";
 
@@ -20,6 +21,7 @@ const Footer = () => {
     { name: "About Us", href: "#about" },
     { name: "Services", href: "#services" },
     { name: "How We Work", href: "#process" },
+    { name: "Blog", href: "/blog" },
     { name: "Contact Us", href: "#contact" },
   ];
 
@@ -95,12 +97,21 @@ const Footer = () => {
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.name}>
-                  <button
-                    onClick={() => scrollToSection(link.href)}
-                    className="text-background/70 hover:text-gold transition-colors text-sm"
-                  >
-                    {link.name}
-                  </button>
+                  {link.href.startsWith("/") ? (
+                    <Link
+                      to={link.href}
+                      className="text-background/70 hover:text-gold transition-colors text-sm"
+                    >
+                      {link.name}
+                    </Link>
+                  ) : (
+                    <button
+                      onClick={() => scrollToSection(link.href)}
+                      className="text-background/70 hover:text-gold transition-colors text-sm"
+                    >
+                      {link.name}
+                    </button>
+                  )}
                 </li>
               ))}
             </ul>
