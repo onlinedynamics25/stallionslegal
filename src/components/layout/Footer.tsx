@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Linkedin, Twitter, Mail, Phone, MapPin } from "lucide-react";
 import { useTheme } from "next-themes";
 
