@@ -2,36 +2,29 @@ import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import { Search, Calendar, ArrowRight } from "lucide-react";
-import { sanityClient, urlFor } from "@/lib/sanity";
+import { supabase } from "@/integrations/supabase/client";
 import { Input } from "@/components/ui/input";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 
 interface Post {
-  _id: string;
+  id: string;
   title: string;
-  slug: { current: string };
-  publishedAt: string;
-  image?: any;
-  body?: any[];
+  slug: string;
+  published_at: string | null;
+  cover_image_url: string | null;
+  excerpt: string | null;
 }
 
-const fetchPosts = () =>
-  sanityClient.fetch<Post[]>(
-    `*[_type == "post"] | order(publishedAt desc) {
-      _id, title, slug, publishedAt, image, body
-    }`
-  );
-
-function getExcerpt(body?: any[]): string {
-  if (!body) return "";
-  const textBlock = body.find(
-    (b) => b._type === "block" && b.children?.some((c: any) => c.text)
-  );
-  if (!textBlock) return "";
-  const text = textBlock.children.map((c: any) => c.text || "").join("");
-  return text.length > 160 ? text.substring(0, 160) + "…" : text;
-}
+const fetchPosts = async (): Promise<Post[]> => {
+  const { data, error } = await supabase
+    .from("posts")
+    .select("id, title, slug, published_at, cover_image_url, excerpt")
+    .eq("published", true)
+    .order("published_at", { ascending: false });
+  if (error) throw error;
+  return data ?? [];
+};
 
 const Blog = () => {
   const [search, setSearch] = useState("");
@@ -93,7 +86,7 @@ const Blog = () => {
 
         {error && (
           <div className="text-center py-12">
-            <p className="text-destructive text-lg">Failed to load posts. Please ensure CORS is configured in your Sanity project.</p>
+            <p className="text-destructive text-lg">Failed to load posts.</p>
           </div>
         )}
 
@@ -107,16 +100,17 @@ const Blog = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filtered.map((post) => (
               <Link
-                key={post._id}
-                to={`/blog/${post.slug.current}`}
+                key={post.id}
+                to={`/blog/${post.slug}`}
                 className="group bg-card rounded-lg overflow-hidden border border-border hover:border-gold/50 hover:shadow-lg transition-all duration-300"
               >
-                {post.image ? (
+                {post.cover_image_url ? (
                   <div className="h-48 overflow-hidden">
                     <img
-                      src={urlFor(post.image).width(600).height(400).url()}
+                      src={post.cover_image_url}
                       alt={post.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
                     />
                   </div>
                 ) : (
@@ -127,13 +121,15 @@ const Blog = () => {
                 <div className="p-6">
                   <div className="flex items-center gap-2 text-muted-foreground text-sm mb-3">
                     <Calendar className="h-4 w-4" />
-                    <time>{new Date(post.publishedAt).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</time>
+                    {post.published_at && (
+                      <time>{new Date(post.published_at).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</time>
+                    )}
                   </div>
                   <h2 className="text-xl font-serif font-bold text-foreground group-hover:text-gold transition-colors mb-2">
                     {post.title}
                   </h2>
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-                    {getExcerpt(post.body)}
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-3">
+                    {post.excerpt}
                   </p>
                   <span className="inline-flex items-center gap-1 text-gold text-sm font-medium group-hover:gap-2 transition-all">
                     Read More <ArrowRight className="h-4 w-4" />
