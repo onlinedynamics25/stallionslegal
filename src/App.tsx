@@ -10,6 +10,9 @@ import Services from "./pages/Services";
 import Process from "./pages/Process";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
+import Auth from "./pages/Auth";
+import AdminBlog from "./pages/admin/AdminBlog";
+import AdminPostEdit from "./pages/admin/AdminPostEdit";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -28,6 +31,10 @@ const App = () => (
             <Route path="/process" element={<Process />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
+            <Route path="/auth" element={<Auth />} />
+            <Route path="/admin/blog" element={<AdminBlog />} />
+            <Route path="/admin/blog/new" element={<AdminPostEdit />} />
+            <Route path="/admin/blog/:id" element={<AdminPostEdit />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

@@ -1,27 +1,30 @@
 import { useParams, Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { Calendar, ArrowLeft } from "lucide-react";
-import { sanityClient, urlFor } from "@/lib/sanity";
-import PortableText from "@/components/blog/PortableText";
+import ReactMarkdown from "react-markdown";
+import { supabase } from "@/integrations/supabase/client";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 
 interface Post {
-  _id: string;
+  id: string;
   title: string;
-  slug: { current: string };
-  publishedAt: string;
-  image?: any;
-  body?: any[];
+  slug: string;
+  published_at: string | null;
+  cover_image_url: string | null;
+  body: string;
 }
 
-const fetchPost = (slug: string) =>
-  sanityClient.fetch<Post>(
-    `*[_type == "post" && slug.current == $slug][0] {
-      _id, title, slug, publishedAt, image, body
-    }`,
-    { slug }
-  );
+const fetchPost = async (slug: string): Promise<Post | null> => {
+  const { data, error } = await supabase
+    .from("posts")
+    .select("id, title, slug, published_at, cover_image_url, body")
+    .eq("slug", slug)
+    .eq("published", true)
+    .maybeSingle();
+  if (error) throw error;
+  return data;
+};
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -57,11 +60,10 @@ const BlogPost = () => {
 
       {post && (
         <>
-          {/* Hero image */}
-          {post.image && (
+          {post.cover_image_url && (
             <div className="pt-20 w-full h-[40vh] md:h-[50vh] relative overflow-hidden">
               <img
-                src={urlFor(post.image).width(1400).height(600).url()}
+                src={post.cover_image_url}
                 alt={post.title}
                 className="w-full h-full object-cover"
               />
@@ -69,7 +71,7 @@ const BlogPost = () => {
             </div>
           )}
 
-          <article className={`container mx-auto px-4 max-w-3xl ${post.image ? "-mt-20 relative z-10" : "pt-32"} pb-16`}>
+          <article className={`container mx-auto px-4 max-w-3xl ${post.cover_image_url ? "-mt-20 relative z-10" : "pt-32"} pb-16`}>
             <Link
               to="/blog"
               className="inline-flex items-center gap-2 text-gold hover:text-gold-dark transition-colors mb-6 text-sm font-medium"
@@ -80,25 +82,23 @@ const BlogPost = () => {
 
             <div className="flex items-center gap-2 text-muted-foreground text-sm mb-4">
               <Calendar className="h-4 w-4" />
-              <time>
-                {new Date(post.publishedAt).toLocaleDateString("en-US", {
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-                })}
-              </time>
+              {post.published_at && (
+                <time>
+                  {new Date(post.published_at).toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  })}
+                </time>
+              )}
             </div>
 
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-foreground mb-8 leading-tight">
               {post.title}
             </h1>
 
-            <div className="border-t border-border pt-8">
-              {post.body ? (
-                <PortableText value={post.body} />
-              ) : (
-                <p className="text-muted-foreground italic">No content available.</p>
-              )}
+            <div className="border-t border-border pt-8 prose prose-neutral dark:prose-invert max-w-none prose-headings:font-serif prose-headings:text-foreground prose-p:text-foreground/90 prose-strong:text-foreground prose-a:text-gold">
+              <ReactMarkdown>{post.body}</ReactMarkdown>
             </div>
           </article>
         </>
