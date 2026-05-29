@@ -8,9 +8,9 @@ import { Label } from "@/components/ui/label";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 
-const Auth = () => {
+const Signup = () => {
   const navigate = useNavigate();
-  const { user, signIn } = useAuth();
+  const { user, signUp } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -22,9 +22,11 @@ const Auth = () => {
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    const { error } = await signIn(email, password);
+    const { error } = await signUp(email, password);
     setLoading(false);
     if (error) return toast.error(error.message);
+    toast.success("Account created. Check your email to confirm, then sign in.");
+    navigate("/auth");
   };
 
   return (
@@ -32,9 +34,9 @@ const Auth = () => {
       <Header />
       <main className="flex-1 flex items-center justify-center px-4 pt-32 pb-16">
         <div className="w-full max-w-md bg-card border border-border rounded-lg p-8 shadow-sm">
-          <h1 className="text-2xl font-serif font-bold text-foreground mb-2">Sign in</h1>
+          <h1 className="text-2xl font-serif font-bold text-foreground mb-2">Create account</h1>
           <p className="text-muted-foreground text-sm mb-6">
-            Access the admin area for Stallions Sterling.
+            Sign up to continue. Admin access is restricted.
           </p>
           <form onSubmit={onSubmit} className="space-y-4">
             <div>
@@ -46,12 +48,12 @@ const Auth = () => {
               <Input id="password" type="password" required minLength={6} value={password} onChange={(e) => setPassword(e.target.value)} />
             </div>
             <Button type="submit" disabled={loading} className="w-full bg-gold hover:bg-gold-dark text-primary">
-              {loading ? "Signing in…" : "Sign in"}
+              {loading ? "Creating…" : "Create account"}
             </Button>
           </form>
           <p className="mt-4 text-sm text-muted-foreground text-center">
-            Don't have an account?{" "}
-            <Link to="/signup" className="text-foreground hover:underline">Sign up</Link>
+            Already have an account?{" "}
+            <Link to="/auth" className="text-foreground hover:underline">Sign in</Link>
           </p>
         </div>
       </main>
@@ -60,4 +62,4 @@ const Auth = () => {
   );
 };
 
-export default Auth;
+export default Signup;
