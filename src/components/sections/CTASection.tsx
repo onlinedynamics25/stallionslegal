@@ -23,15 +23,16 @@ const CTASection = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-foreground mb-6">
-            Legal Advice You Can <span className="text-gold">Rely On</span>
+          <span className="text-gold font-medium uppercase tracking-[0.3em] text-xs">
+            Our Commitment
+          </span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-foreground mt-4 mb-6 tracking-tight leading-[1.05]">
+            Legal Counsel You Can <span className="text-gold italic">Rely On</span>
           </h2>
 
-          <p className="text-lg text-foreground/80 mb-10 max-w-2xl mx-auto">
-            Whether you require one-off legal guidance or ongoing legal support,
-            our approach is deliberate, transparent, and outcome-driven. We help
-            you understand your legal position, manage risk, and make informed
-            decisions with confidence.
+          <p className="text-lg md:text-xl text-foreground/75 mb-10 max-w-2xl mx-auto leading-relaxed font-light">
+            Deliberate. Transparent. Outcome-driven. We help you understand your
+            position, manage risk, and move forward with clarity.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -44,7 +45,7 @@ const CTASection = () => {
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
 
-            <a href="tel:+254719407999">
+            <a href="tel:+254719407999" className="w-full sm:w-auto">
               <Button
                 variant="outline"
                 size="lg"
@@ -58,17 +59,16 @@ const CTASection = () => {
         </div>
 
         {/* Secondary CTA */}
-        <div className="mt-16 pt-12 border-t border-charcoal-light">
+        <div className="mt-20 pt-14 border-t border-charcoal-light">
           <div className="max-w-3xl mx-auto text-center">
-            <h3 className="text-2xl font-serif font-bold text-foreground mb-4">
-              Built for Long-Term Legal Support
+            <h3 className="text-2xl md:text-3xl font-serif font-bold text-foreground mb-4 tracking-tight">
+              Built for Long-Term Partnership
             </h3>
-            <p className="text-foreground/70 mb-6">
-              Our retainership model is designed for businesses and
-              professionals who value consistency, accessibility, and proactive
-              legal guidance. We work alongside you — anticipating risk,
-              maintaining compliance, and protecting your interests as your
-              affairs evolve.
+            <p className="text-foreground/70 mb-6 leading-relaxed max-w-2xl mx-auto">
+              Our retainership model serves businesses and professionals who
+              value consistency, accessibility, and proactive guidance —
+              anticipating risk, maintaining compliance, and protecting your
+              interests as you grow.
             </p>
             <Button
               variant="outline"

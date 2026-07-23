@@ -113,16 +113,16 @@ const ContactSection = () => {
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="text-gold font-medium uppercase tracking-wider text-sm">
+          <span className="text-gold font-medium uppercase tracking-[0.3em] text-xs">
             Get In Touch
           </span>
-          <div className="w-12 h-1 bg-gold mt-2 mx-auto" />
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground mt-6">
-            Contact Us
+          <div className="w-12 h-1 bg-gold mt-3 mx-auto" />
+          <h2 className="text-4xl md:text-5xl font-serif font-bold text-foreground mt-6 tracking-tight leading-[1.1]">
+            Let's Start a Conversation
           </h2>
-          <p className="text-muted-foreground mt-4">
-            Have a legal question or need assistance? Reach out to us and we'll
-            be happy to help you with your legal needs.
+          <p className="text-lg text-muted-foreground mt-5 leading-relaxed font-light">
+            Share the matter at hand — our team will respond with clarity,
+            discretion, and a considered path forward.
           </p>
         </div>
 
