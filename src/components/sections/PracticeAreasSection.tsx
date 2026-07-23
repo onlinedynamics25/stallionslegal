@@ -1,41 +1,48 @@
-import { Building2, Home, FileText, Users, Scale, Briefcase, ShieldCheck, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import corporateImg from "@/assets/practice-corporate.jpg";
+import propertyImg from "@/assets/practice-property.jpg";
+import contractImg from "@/assets/practice-contract.jpg";
+import employmentImg from "@/assets/practice-employment.jpg";
+import disputeImg from "@/assets/practice-dispute.jpg";
+import retainerImg from "@/assets/practice-retainer.jpg";
+import complianceImg from "@/assets/practice-compliance.jpg";
 
 const PracticeAreasSection = () => {
   const practiceAreas = [
     {
-      icon: Building2,
+      image: corporateImg,
       title: "Corporate & Commercial Law",
       description: "Company formation, corporate governance, contracts, commercial advisory, and compliance.",
     },
     {
-      icon: Home,
+      image: propertyImg,
       title: "Property & Real Estate Law",
       description: "Property transactions, leases, tenancy matters, property advisory, and related disputes.",
     },
     {
-      icon: FileText,
+      image: contractImg,
       title: "Contract Law",
       description: "Drafting, vetting, negotiation, enforcement, and risk review of commercial and private contracts.",
     },
     {
-      icon: Users,
+      image: employmentImg,
       title: "Employment & Labour Law",
       description: "Employment contracts, HR advisory, workplace compliance, and labour-related disputes.",
     },
     {
-      icon: Scale,
+      image: disputeImg,
       title: "Dispute Resolution & Advisory",
       description: "Pre-litigation advisory, demand notices, negotiation, and strategic dispute management.",
     },
     {
-      icon: Briefcase,
+      image: retainerImg,
       title: "Legal Retainership Services",
       description: "Ongoing legal support for businesses, SMEs, and professionals through structured retainership arrangements.",
     },
     {
-      icon: ShieldCheck,
+      image: complianceImg,
       title: "Regulatory & Compliance Advisory",
       description: "Guidance on statutory compliance, regulatory exposure, and legal risk mitigation.",
     },
@@ -52,26 +59,39 @@ const PracticeAreasSection = () => {
             Comprehensive Legal Services
           </h2>
           <p className="text-muted-foreground mt-4">
-            Stallions Sterling Law Firm provides structured legal services across advisory, 
-            transactional, and dispute-resolution mandates. Each service is delivered with 
+            Stallions Sterling Law Firm provides structured legal services across advisory,
+            transactional, and dispute-resolution mandates. Each service is delivered with
             clarity of scope, defined process, and professional accountability.
           </p>
         </div>
 
         {/* Practice Areas Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {practiceAreas.map((area) => (
-            <Card 
+            <Card
               key={area.title}
-              className="group hover:shadow-lg transition-all duration-300 border-border hover:border-gold/30 bg-background"
+              className="group overflow-hidden hover:shadow-2xl transition-all duration-500 border-border hover:border-gold/40 bg-background flex flex-col"
             >
-              <CardContent className="p-6">
-                <div className="w-14 h-14 rounded-lg bg-primary flex items-center justify-center mb-6 group-hover:bg-gold transition-colors duration-300">
-                  <area.icon className="h-7 w-7 text-gold group-hover:text-primary transition-colors duration-300" />
+              {/* Cover Image */}
+              <div className="relative w-full aspect-[16/10] overflow-hidden">
+                <img
+                  src={area.image}
+                  alt={area.title}
+                  loading="lazy"
+                  width={1024}
+                  height={640}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-4">
+                  <h3 className="font-serif font-semibold text-lg text-primary-foreground drop-shadow-md">
+                    {area.title}
+                  </h3>
+                  <div className="w-10 h-0.5 bg-gold mt-2" />
                 </div>
-                <h3 className="font-serif font-semibold text-lg text-primary mb-3">
-                  {area.title}
-                </h3>
+              </div>
+
+              <CardContent className="p-6 flex-1">
                 <p className="text-muted-foreground text-sm leading-relaxed">
                   {area.description}
                 </p>
@@ -88,7 +108,7 @@ const PracticeAreasSection = () => {
 
         {/* CTA */}
         <div className="text-center mt-12">
-          <Button 
+          <Button
             variant="outline"
             size="lg"
             className="border-gold text-primary hover:bg-gold hover:text-primary-foreground"
