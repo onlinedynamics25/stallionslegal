@@ -75,22 +75,21 @@ const HeroSection = () => {
 
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 backdrop-blur-sm border border-gold/30">
               <Scale className="h-4 w-4 text-gold" />
-              <span className="text-sm text-gold">
-                Trusted Legal Partners Since 2024
+              <span className="text-xs md:text-sm text-gold tracking-[0.2em] uppercase">
+                Trusted Legal Partners · Est. 2024
               </span>
             </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold leading-tight drop-shadow-lg">
-              <span className="text-gold">Safe Solutions.</span>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold leading-[1.05] tracking-tight drop-shadow-lg">
+              <span className="text-gold">Excellence</span>
+              <span className="text-white"> in Legal &amp;</span>
               <br />
-              <span className="text-white">Real Relationships.</span>
+              <span className="text-white">Corporate Advisory.</span>
             </h1>
 
-            <p className="text-lg text-white/85 max-w-lg leading-relaxed drop-shadow">
-              Practical legal counsel built on trust, structure, and disciplined
-              execution. We focus on risk prevention, legal clarity, and
-              long-term client relationships — not reactive advice or
-              unnecessary complexity.
+            <p className="text-lg md:text-xl text-white/85 max-w-xl leading-relaxed font-light drop-shadow">
+              Strategic solutions. Trusted partnerships. Delivering measured,
+              decisive results for businesses and individuals across Nigeria.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
@@ -108,23 +107,23 @@ const HeroSection = () => {
                 size="lg"
                 className="border-gold/50 bg-white/5 backdrop-blur-sm text-white hover:bg-gold hover:text-charcoal hover:border-gold"
               >
-                Explore Our Practice Areas
+                Explore Practice Areas
               </Button>
             </div>
 
             {/* Stats */}
             <div className="grid grid-cols-3 gap-8 pt-8 border-t border-white/15">
               <div>
-                <p className="text-3xl font-serif font-bold text-gold">100+</p>
-                <p className="text-sm text-white/70">Matters Handled</p>
+                <p className="text-3xl md:text-4xl font-serif font-bold text-gold">100+</p>
+                <p className="text-xs md:text-sm text-white/70 tracking-wider uppercase mt-1">Matters Handled</p>
               </div>
               <div>
-                <p className="text-3xl font-serif font-bold text-gold">7</p>
-                <p className="text-sm text-white/70">Practice Areas</p>
+                <p className="text-3xl md:text-4xl font-serif font-bold text-gold">7</p>
+                <p className="text-xs md:text-sm text-white/70 tracking-wider uppercase mt-1">Practice Areas</p>
               </div>
               <div>
-                <p className="text-3xl font-serif font-bold text-gold">2024</p>
-                <p className="text-sm text-white/70">Established</p>
+                <p className="text-3xl md:text-4xl font-serif font-bold text-gold">2024</p>
+                <p className="text-xs md:text-sm text-white/70 tracking-wider uppercase mt-1">Established</p>
               </div>
             </div>
           </div>
