@@ -14,10 +14,10 @@ const HeroSection = () => {
   };
 
   const trustSignals = [
-    "Client-Centred Legal Advisory",
-    "Risk-Focused Legal Solutions",
-    "Structured Retainership Services",
-    "Professional, Confidential Engagements",
+    "Client-Centred Advisory",
+    "Risk-Focused Strategy",
+    "Structured Retainership",
+    "Confidential Engagement",
   ];
 
   return (
