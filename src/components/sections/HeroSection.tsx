@@ -142,11 +142,11 @@ const HeroSection = () => {
             </div>
             <div className="absolute top-6 right-0 bg-charcoal-dark/80 backdrop-blur-md rounded-lg p-4 border border-gold/30 shadow-xl">
               <p className="text-gold font-serif font-bold">Advisory-Led</p>
-              <p className="text-xs text-white/70">Service Model</p>
+              <p className="text-xs text-white/70 tracking-wider uppercase mt-1">Service Model</p>
             </div>
             <div className="absolute bottom-6 left-0 bg-charcoal-dark/80 backdrop-blur-md rounded-lg p-4 border border-gold/30 shadow-xl">
               <p className="text-gold font-serif font-bold">Risk-Focused</p>
-              <p className="text-xs text-white/70">Legal Solutions</p>
+              <p className="text-xs text-white/70 tracking-wider uppercase mt-1">Legal Strategy</p>
             </div>
           </div>
         </div>
