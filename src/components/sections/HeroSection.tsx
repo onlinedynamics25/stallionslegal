@@ -81,15 +81,16 @@ const HeroSection = () => {
             </div>
 
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold leading-[1.05] tracking-tight drop-shadow-lg">
-              <span className="text-gold">Excellence</span>
-              <span className="text-white"> in Legal &amp;</span>
+              <span className="text-gold">Safe Solutions.</span>
               <br />
-              <span className="text-white">Corporate Advisory.</span>
+              <span className="text-white">Real Relationships.</span>
             </h1>
 
             <p className="text-lg md:text-xl text-white/85 max-w-xl leading-relaxed font-light drop-shadow">
-              Strategic solutions. Trusted partnerships. Delivering measured,
-              decisive results for businesses and individuals across Nigeria.
+              Practical legal counsel built on trust, structure, and disciplined
+              execution. We focus on risk prevention, legal clarity, and
+              long-term client relationships — not reactive advice or
+              unnecessary complexity.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
