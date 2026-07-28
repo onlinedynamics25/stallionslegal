@@ -10,6 +10,8 @@ import Index from "./pages/Index";
 import About from "./pages/About";
 import Services from "./pages/Services";
 import Process from "./pages/Process";
+import Team from "./pages/Team";
+import TeamMemberPage from "./pages/TeamMember";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import Auth from "./pages/Auth";
@@ -33,6 +35,8 @@ const App = () => (
               <Route path="/about" element={<About />} />
               <Route path="/services" element={<Services />} />
               <Route path="/process" element={<Process />} />
+              <Route path="/team" element={<Team />} />
+              <Route path="/team/:slug" element={<TeamMemberPage />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:slug" element={<BlogPost />} />
               <Route path="/auth" element={<Auth />} />
