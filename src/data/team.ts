@@ -1,8 +1,8 @@
-import walePhoto from "@/assets/team/wale.jpg.asset.json";
-import princePhoto from "@/assets/team/prince.jpg.asset.json";
-import onyekaPhoto from "@/assets/team/onyeka.jpg.asset.json";
-import eberechiPhoto from "@/assets/team/eberechi.jpg.asset.json";
-import akinbowalePhoto from "@/assets/team/akinbowale.jpg.asset.json";
+import walePhoto from "@/assets/team/wale.jpg";
+import princePhoto from "@/assets/team/prince.jpg";
+import onyekaPhoto from "@/assets/team/onyeka.jpg";
+import eberechiPhoto from "@/assets/team/eberechi.jpg";
+import akinbowalePhoto from "@/assets/team/akinbowale.jpg";
 
 export interface TeamMember {
   slug: string;
@@ -55,7 +55,7 @@ export const team: TeamMember[] = [
     group: "leadership",
     qualifications: "B.A., LL.B., B.L., LL.M., Dip. WBS, A.ARCON, M.ICMC",
     specialty: "Commercial litigation, ADR & migration advisory",
-    photo: walePhoto.url,
+    photo: walePhoto,
     email: "consultation@stallionslegal.com",
     linkedin: "#",
     summary:
@@ -114,7 +114,7 @@ export const team: TeamMember[] = [
     title: "Of Counsel",
     group: "of-counsel",
     specialty: "Litigation strategy & legal advisory",
-    photo: princePhoto.url,
+    photo: princePhoto,
     email: "matters@stallionslegal.com",
     linkedin: "#",
     summary:
@@ -142,7 +142,7 @@ export const team: TeamMember[] = [
     group: "associate",
     qualifications: "LL.B",
     specialty: "Civil litigation & dispute resolution",
-    photo: onyekaPhoto.url,
+    photo: onyekaPhoto,
     email: "consultation@stallionslegal.com",
     linkedin: "#",
     summary:
@@ -159,7 +159,7 @@ export const team: TeamMember[] = [
     title: "Associate",
     group: "associate",
     specialty: "Dispute resolution, media & entertainment law",
-    photo: eberechiPhoto.url,
+    photo: eberechiPhoto,
     email: "supports@stallionslegal.com",
     linkedin: "#",
     summary:
@@ -180,7 +180,7 @@ export const team: TeamMember[] = [
     group: "external",
     qualifications: "LL.B (Hons.), B.L.",
     specialty: "Litigation support, drafting & legal research",
-    photo: akinbowalePhoto.url,
+    photo: akinbowalePhoto,
     email: "supports@stallionslegal.com",
     linkedin: "#",
     summary:
