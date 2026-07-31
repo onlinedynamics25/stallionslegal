@@ -34,7 +34,9 @@ export type Database = {
       }
       posts: {
         Row: {
+          author: string | null
           body: string
+          category: string | null
           cover_image_url: string | null
           created_at: string
           excerpt: string | null
@@ -42,11 +44,15 @@ export type Database = {
           published: boolean
           published_at: string | null
           slug: string
+          subtitle: string | null
+          tags: string[]
           title: string
           updated_at: string
         }
         Insert: {
+          author?: string | null
           body?: string
+          category?: string | null
           cover_image_url?: string | null
           created_at?: string
           excerpt?: string | null
@@ -54,11 +60,15 @@ export type Database = {
           published?: boolean
           published_at?: string | null
           slug: string
+          subtitle?: string | null
+          tags?: string[]
           title: string
           updated_at?: string
         }
         Update: {
+          author?: string | null
           body?: string
+          category?: string | null
           cover_image_url?: string | null
           created_at?: string
           excerpt?: string | null
@@ -66,6 +76,8 @@ export type Database = {
           published?: boolean
           published_at?: string | null
           slug?: string
+          subtitle?: string | null
+          tags?: string[]
           title?: string
           updated_at?: string
         }
