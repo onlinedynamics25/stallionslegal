@@ -42,7 +42,7 @@ export const teamGroups: { id: TeamMember["group"]; label: string; blurb: string
   },
   {
     id: "external",
-    label: "External Associates",
+    label: "External Associate",
     blurb: "Trusted collaborators who extend our reach and capacity.",
   },
 ];
