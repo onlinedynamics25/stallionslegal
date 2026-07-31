@@ -59,7 +59,7 @@ const TeamMemberPage = () => {
                   <img
                     src={member.photo}
                     alt={`Portrait of ${member.name}`}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-top"
                   />
                 ) : (
                   <span className="font-serif text-6xl text-gold/70 tracking-widest">

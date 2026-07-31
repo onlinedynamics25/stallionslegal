@@ -1,8 +1,14 @@
+import walePhoto from "@/assets/team/wale.jpg";
+import princePhoto from "@/assets/team/prince.jpg";
+import onyekaPhoto from "@/assets/team/onyeka.jpg";
+import eberechiPhoto from "@/assets/team/eberechi.jpg";
+import akinbowalePhoto from "@/assets/team/akinbowale.jpg";
+
 export interface TeamMember {
   slug: string;
   name: string;
   title: string;
-  group: "leadership" | "of-counsel" | "external";
+  group: "leadership" | "of-counsel" | "associate" | "external";
   qualifications?: string;
   specialty?: string;
   photo?: string;
@@ -30,8 +36,13 @@ export const teamGroups: { id: TeamMember["group"]; label: string; blurb: string
     blurb: "Seasoned advisers who strengthen our judgment on complex matters.",
   },
   {
+    id: "associate",
+    label: "Associates",
+    blurb: "Committed counsel delivering diligent advocacy and day-to-day client service.",
+  },
+  {
     id: "external",
-    label: "External Associates",
+    label: "External Associate",
     blurb: "Trusted collaborators who extend our reach and capacity.",
   },
 ];
@@ -44,6 +55,7 @@ export const team: TeamMember[] = [
     group: "leadership",
     qualifications: "B.A., LL.B., B.L., LL.M., Dip. WBS, A.ARCON, M.ICMC",
     specialty: "Commercial litigation, ADR & migration advisory",
+    photo: walePhoto,
     email: "consultation@stallionslegal.com",
     linkedin: "#",
     summary:
@@ -102,6 +114,7 @@ export const team: TeamMember[] = [
     title: "Of Counsel",
     group: "of-counsel",
     specialty: "Litigation strategy & legal advisory",
+    photo: princePhoto,
     email: "matters@stallionslegal.com",
     linkedin: "#",
     summary:
@@ -123,12 +136,51 @@ export const team: TeamMember[] = [
     appointments: ["Principal, Adediran Adeyemo & Co.", "Of Counsel, Stallions Sterling Law Firm"],
   },
   {
+    slug: "onyeka-izuchukwu-charles",
+    name: "Onyeka Izuchukwu Charles, Esq.",
+    title: "Associate",
+    group: "associate",
+    qualifications: "LL.B",
+    specialty: "Civil litigation & dispute resolution",
+    photo: onyekaPhoto,
+    email: "consultation@stallionslegal.com",
+    linkedin: "#",
+    summary:
+      "An Associate at Stallions Sterling Law Firm whose practice focuses on civil litigation and dispute resolution, delivering rigorous legal analysis and assertive advocacy.",
+    biography: [
+      "Onyeka Izuchukwu Charles Esq. is an Associate at Stallions Sterling Law Firm, where his practice focuses on civil litigation and dispute resolution. He is dedicated to providing rigorous legal analysis and assertive advocacy for clients across a wide range of civil matters. He holds an LL.B from Abia State University, and is committed to delivering strategic, results-oriented representation with the highest standards of professional excellence.",
+    ],
+    education: ["LL.B, Abia State University"],
+    practiceAreas: ["Civil Litigation", "Dispute Resolution"],
+  },
+  {
+    slug: "eberechi-azubuine",
+    name: "Eberechi Azubuine, Esq.",
+    title: "Associate",
+    group: "associate",
+    specialty: "Dispute resolution, media & entertainment law",
+    photo: eberechiPhoto,
+    email: "supports@stallionslegal.com",
+    linkedin: "#",
+    summary:
+      "A lawyer with interests in dispute resolution, media and entertainment law, and corporate and commercial law, known for sound research and attention to detail.",
+    biography: [
+      "Eberechi Azubuine Esq. is a lawyer with interests in dispute resolution, media and entertainment law, and corporate and commercial law. He is committed to delivering practical legal solutions through sound research, attention to detail, while maintaining the highest standards of professionalism and ethics.",
+    ],
+    practiceAreas: [
+      "Dispute Resolution",
+      "Media & Entertainment Law",
+      "Corporate & Commercial Law",
+    ],
+  },
+  {
     slug: "m-e-akinbowale",
     name: "M. E. Akinbowale, Esq.",
     title: "External Associate",
     group: "external",
     qualifications: "LL.B (Hons.), B.L.",
     specialty: "Litigation support, drafting & legal research",
+    photo: akinbowalePhoto,
     email: "supports@stallionslegal.com",
     linkedin: "#",
     summary:
@@ -145,25 +197,6 @@ export const team: TeamMember[] = [
       "Legal Drafting",
       "Dispute Resolution",
       "Advisory Services",
-    ],
-  },
-  {
-    slug: "eberechi-azubuine",
-    name: "Eberechi Azubuine, Esq.",
-    title: "External Associate",
-    group: "external",
-    specialty: "Dispute resolution, media & entertainment law",
-    email: "supports@stallionslegal.com",
-    linkedin: "#",
-    summary:
-      "A lawyer with interests in dispute resolution, media and entertainment law, and corporate and commercial law, known for sound research and attention to detail.",
-    biography: [
-      "Eberechi Azubuine Esq. is a lawyer with interests in dispute resolution, media and entertainment law, and corporate and commercial law. He is committed to delivering practical legal solutions through sound research, attention to detail, while maintaining the highest standards of professionalism and ethics.",
-    ],
-    practiceAreas: [
-      "Dispute Resolution",
-      "Media & Entertainment Law",
-      "Corporate & Commercial Law",
     ],
   },
 ];

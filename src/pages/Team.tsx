@@ -9,7 +9,7 @@ const MemberCard = ({ member }: { member: TeamMember }) => (
   <article className="group rounded-xl border border-border bg-card overflow-hidden transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-gold/40">
     <Link
       to={`/team/${member.slug}`}
-      className="block aspect-[4/5] bg-charcoal relative overflow-hidden"
+      className="block aspect-[4/5] bg-charcoal relative overflow-hidden border-b border-gold/20"
       aria-label={`View profile of ${member.name}`}
     >
       {member.photo ? (
@@ -17,7 +17,7 @@ const MemberCard = ({ member }: { member: TeamMember }) => (
           src={member.photo}
           alt={`Portrait of ${member.name}`}
           loading="lazy"
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
         />
       ) : (
         <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-charcoal to-charcoal-light">
