@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { useParams, Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import { Helmet } from "react-helmet-async";
+import Seo from "@/components/Seo";
 import {
   Calendar,
   ArrowLeft,
@@ -131,43 +131,40 @@ const BlogPost = () => {
       <Header />
 
       {post && (
-        <Helmet>
-          <title>{seoTitle}</title>
-          <meta name="description" content={metaDescription} />
-          <link rel="canonical" href={canonical} />
-          <meta property="og:type" content="article" />
-          <meta property="og:title" content={post.title} />
-          <meta property="og:description" content={metaDescription} />
-          <meta property="og:url" content={canonical} />
-          {post.cover_image_url && (
-            <meta property="og:image" content={`${SITE_URL}${post.cover_image_url}`} />
-          )}
-          <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:title" content={post.title} />
-          <meta name="twitter:description" content={metaDescription} />
-          {post.cover_image_url && (
-            <meta name="twitter:image" content={`${SITE_URL}${post.cover_image_url}`} />
-          )}
-          <script type="application/ld+json">
-            {JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "BlogPosting",
-              headline: post.title,
-              alternativeHeadline: post.subtitle ?? undefined,
-              description: metaDescription,
-              image: post.cover_image_url ? `${SITE_URL}${post.cover_image_url}` : undefined,
-              datePublished: post.published_at ?? undefined,
-              author: { "@type": "Person", name: post.author ?? "Stallions Sterling Law Firm" },
-              publisher: {
-                "@type": "Organization",
-                name: "Stallions Sterling Law Firm",
-              },
-              articleSection: post.category ?? undefined,
-              keywords: (post.tags ?? []).join(", "),
-              mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
-            })}
-          </script>
-        </Helmet>
+        <Seo
+          title={seoTitle}
+          description={metaDescription}
+          canonical={canonical}
+          meta={[
+            { property: "og:type", content: "article" },
+            { property: "og:title", content: post.title },
+            { property: "og:description", content: metaDescription },
+            { property: "og:url", content: canonical },
+            ...(post.cover_image_url
+              ? [{ property: "og:image", content: post.cover_image_url }]
+              : []),
+            { name: "twitter:card", content: "summary_large_image" },
+            { name: "twitter:title", content: post.title },
+            { name: "twitter:description", content: metaDescription },
+            ...(post.cover_image_url
+              ? [{ name: "twitter:image", content: post.cover_image_url }]
+              : []),
+          ]}
+          jsonLd={{
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            headline: post.title,
+            alternativeHeadline: post.subtitle ?? undefined,
+            description: metaDescription,
+            image: post.cover_image_url ?? undefined,
+            datePublished: post.published_at ?? undefined,
+            author: { "@type": "Person", name: post.author ?? "Stallions Sterling Law Firm" },
+            publisher: { "@type": "Organization", name: "Stallions Sterling Law Firm" },
+            articleSection: post.category ?? undefined,
+            keywords: (post.tags ?? []).join(", "),
+            mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
+          }}
+        />
       )}
 
       {isLoading && (
