@@ -13,11 +13,14 @@ interface BrandLogoProps {
 
 const LOGO_ALT = "Stallions Legal - Legal Practitioners and ADR Consultants";
 
+// White plate treatment used anywhere the mark sits on a dark/low-contrast surface
+const WHITE_PLATE =
+  "bg-white border border-[#E5E7EB] shadow-[0_2px_8px_rgba(0,0,0,0.08)] rounded-[10px] p-3 md:p-4";
+
 const backdrops: Record<NonNullable<BrandLogoProps["variant"]>, string> = {
-  frosted:
-    "bg-background/60 backdrop-blur-md ring-1 ring-gold/30 shadow-[0_1px_0_hsl(var(--gold)/0.25)]",
-  light: "bg-white ring-1 ring-gold/25",
-  dark: "bg-charcoal-dark/70 backdrop-blur-md ring-1 ring-gold/30",
+  frosted: WHITE_PLATE,
+  light: WHITE_PLATE,
+  dark: WHITE_PLATE,
 };
 
 const BrandLogo = ({
@@ -26,17 +29,13 @@ const BrandLogo = ({
   priority = false,
   className,
 }: BrandLogoProps) => {
-  const resolved = useTheme().theme === "dark" ? "dark" : "light";
-  // rounded.png reads well on light surfaces, nobg.png on dark surfaces
-  const src =
-    variant === "dark" || (variant === "frosted" && resolved === "dark")
-      ? "/logo/nobg.png"
-      : "/logo/rounded.png";
+  // the mark always sits on a white plate, so use the light-surface asset
+  const src = "/logo/rounded.png";
 
   return (
     <span
       className={cn(
-        "inline-flex shrink-0 items-center justify-center rounded-xl p-1.5 transition-shadow",
+        "inline-flex shrink-0 items-center justify-center transition-shadow",
         backdrops[variant],
         className,
       )}
