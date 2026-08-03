@@ -53,17 +53,16 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2">
-            <div className="flex items-center gap-2">
-              <img
-                src={theme === "dark" ? "/logo/rounded.png" : "/logo/nobg.png"}
-                alt="Stallions Legal Logo"
-                width={48}
-                height={48}
-                className="object-contain"
+          <Link to="/" className="flex items-center gap-3 py-2 pr-4">
+            <div className="flex items-center gap-3">
+              <BrandLogo
+                size={56}
+                variant="frosted"
+                priority
+                className="md:p-2"
               />
               <div className="flex flex-col leading-tight">
-                <span className="text-2xl font-serif font-bold text-gold">
+                <span className="text-2xl md:text-[1.7rem] font-serif font-bold text-gold">
                   Stallions
                 </span>
                 <span className="text-sm font-sans text-foreground tracking-widest uppercase">
@@ -72,6 +71,7 @@ const Header = () => {
               </div>
             </div>
           </Link>
+
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
