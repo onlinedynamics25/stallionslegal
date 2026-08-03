@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import { Linkedin, Twitter, Mail, Phone, MapPin } from "lucide-react";
-import { useTheme } from "next-themes";
+import BrandLogo from "@/components/BrandLogo";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  const theme = useTheme().theme === "dark" ? "dark" : "light";
+
 
   const practiceAreas = [
     "Corporate & Commercial Law",
