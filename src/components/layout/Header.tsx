@@ -3,7 +3,8 @@ import { Menu, X, Phone } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import ThemeToggle from "@/components/ThemeToggle";
-import { useTheme } from "next-themes";
+import BrandLogo from "@/components/BrandLogo";
+
 
 const navLinks = [
   { name: "Home", href: "/" },
