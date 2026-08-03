@@ -56,12 +56,7 @@ const HeroSection = () => {
           <div className="space-y-8">
             {/* Prominent Logo */}
             <div className="flex items-center gap-4">
-              <BrandLogo
-                size={84}
-                variant="dark"
-                priority
-                className="p-2.5 rounded-2xl"
-              />
+              <BrandLogo size={84} variant="dark" priority />
 
               <div className="flex flex-col leading-tight">
                 <span className="text-3xl md:text-4xl font-serif font-bold text-gold">
