@@ -1,10 +1,10 @@
 import { ArrowRight, Scale } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useTheme } from "next-themes";
+import BrandLogo from "@/components/BrandLogo";
 import heroImage from "@/assets/hero-law-office.jpg";
 
 const HeroSection = () => {
-  const theme = useTheme().theme === "dark" ? "dark" : "light";
+
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
