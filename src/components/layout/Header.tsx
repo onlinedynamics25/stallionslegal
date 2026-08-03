@@ -54,7 +54,7 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20 md:h-24">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 py-2 pr-4">
+          <Link to="/" className="flex shrink-0 items-center gap-3 py-2 pr-6 lg:pr-10">
             <div className="flex items-center gap-3">
               <BrandLogo
                 size={56}
@@ -73,9 +73,9 @@ const Header = () => {
             </div>
           </Link>
 
-
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-5 lg:gap-7 whitespace-nowrap">
+
             {navLinks.map((link) =>
               link.href.startsWith("/#") ? (
                 <button
