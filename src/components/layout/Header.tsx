@@ -56,12 +56,7 @@ const Header = () => {
           {/* Logo */}
           <Link to="/" className="flex shrink-0 items-center gap-3 py-2 pr-6 lg:pr-10">
             <div className="flex items-center gap-3">
-              <BrandLogo
-                size={56}
-                variant="frosted"
-                priority
-                className="md:p-2"
-              />
+              <BrandLogo size={48} variant="frosted" priority />
               <div className="flex flex-col leading-tight">
                 <span className="text-2xl md:text-[1.7rem] font-serif font-bold text-gold">
                   Stallions
