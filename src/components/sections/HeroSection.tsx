@@ -1,10 +1,10 @@
 import { ArrowRight, Scale } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useTheme } from "next-themes";
+import BrandLogo from "@/components/BrandLogo";
 import heroImage from "@/assets/hero-law-office.jpg";
 
 const HeroSection = () => {
-  const theme = useTheme().theme === "dark" ? "dark" : "light";
+
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
@@ -56,13 +56,13 @@ const HeroSection = () => {
           <div className="space-y-8">
             {/* Prominent Logo */}
             <div className="flex items-center gap-4">
-              <img
-                src={theme === "dark" ? "/logo/rounded.png" : "/logo/nobg.png"}
-                alt="Stallions Sterling Logo"
-                width={72}
-                height={72}
-                className="object-contain drop-shadow-[0_4px_16px_rgba(212,175,55,0.35)]"
+              <BrandLogo
+                size={84}
+                variant="dark"
+                priority
+                className="p-2.5 rounded-2xl"
               />
+
               <div className="flex flex-col leading-tight">
                 <span className="text-3xl md:text-4xl font-serif font-bold text-gold">
                   Stallions

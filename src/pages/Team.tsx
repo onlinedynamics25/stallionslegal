@@ -71,7 +71,7 @@ const Team = () => {
   return (
     <div className="min-h-screen">
       <Header />
-      <main className="pt-20">
+      <main className="pt-20 md:pt-24">
         {/* Hero */}
         <section className="bg-charcoal py-20 md:py-28">
           <div className="container mx-auto px-4 max-w-4xl text-center">

@@ -7,7 +7,7 @@ const Process = () => {
   return (
     <div className="min-h-screen">
       <Header />
-      <main className="pt-20">
+      <main className="pt-20 md:pt-24">
         <ProcessSection />
         <CTASection />
       </main>

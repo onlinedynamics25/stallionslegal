@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import { Linkedin, Twitter, Mail, Phone, MapPin } from "lucide-react";
-import { useTheme } from "next-themes";
+import BrandLogo from "@/components/BrandLogo";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  const theme = useTheme().theme === "dark" ? "dark" : "light";
+
 
   const practiceAreas = [
     "Corporate & Commercial Law",
@@ -45,14 +45,8 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Company Info */}
           <div className="space-y-4">
-            <div className="flex items-center gap-2">
-              <img
-                src={theme === "dark" ? "/logo/nobg.png" : "/logo/rounded.png"}
-                alt="Stallions Legal Logo"
-                width={48}
-                height={48}
-                className="object-contain"
-              />
+            <div className="flex items-center gap-3">
+              <BrandLogo size={56} variant="dark" />
               <div className="flex flex-col leading-tight">
                 <span className="text-2xl font-serif font-bold text-gold">
                   Stallions
@@ -62,6 +56,7 @@ const Footer = () => {
                 </span>
               </div>
             </div>
+
             <p className="text-background/70 text-sm leading-relaxed">
               A client-focused law practice founded on the conviction that
               effective legal solutions must be both technically sound and

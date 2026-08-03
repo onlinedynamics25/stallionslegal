@@ -43,7 +43,7 @@ const TeamMemberPage = () => {
   return (
     <div className="min-h-screen">
       <Header />
-      <main className="pt-20">
+      <main className="pt-20 md:pt-24">
         <section className="bg-charcoal py-14 md:py-20">
           <div className="container mx-auto px-4">
             <Link
