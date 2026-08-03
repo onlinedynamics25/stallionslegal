@@ -20,7 +20,7 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
-  const theme = useTheme().theme === "dark" ? "dark" : "light";
+  
 
   const handleNavClick = (href: string) => {
     setIsMenuOpen(false);
