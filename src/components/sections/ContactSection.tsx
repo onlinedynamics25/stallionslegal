@@ -66,7 +66,7 @@ const ContactSection = () => {
     const whatsappMessage = encodeURIComponent(
       `Hello, I'm ${data.name}.\n\nEmail: ${data.email}\nPhone: ${data.phone}\n\nMessage: ${data.message}`,
     );
-    window.open(`https://wa.me/254719407999?text=${whatsappMessage}`, "_blank");
+    window.open(`https://wa.me/2348032429497?text=${whatsappMessage}`, "_blank");
 
     setIsSubmitting(false);
     setIsSubmitted(true);

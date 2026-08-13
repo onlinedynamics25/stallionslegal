@@ -73,10 +73,11 @@ const AboutSection = () => {
             </blockquote>
 
             <Button
+              asChild
               variant="outline"
               className="border-gold text-primary hover:bg-gold hover:text-primary-foreground"
             >
-              Learn More About Us
+              <Link to="/team">Meet Our Team</Link>
             </Button>
           </div>
 

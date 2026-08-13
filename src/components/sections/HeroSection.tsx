@@ -1,17 +1,11 @@
 import { ArrowRight, Scale } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import BrandLogo from "@/components/BrandLogo";
 import heroImage from "@/assets/hero-law-office.jpg";
 
 const HeroSection = () => {
 
-
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
 
   const trustSignals = [
     "Client-Centred Advisory",
@@ -90,20 +84,22 @@ const HeroSection = () => {
 
             <div className="flex flex-col sm:flex-row gap-4">
               <Button
-                onClick={() => scrollToSection("#contact")}
+                asChild
                 size="lg"
                 className="bg-gold hover:bg-gold-dark text-charcoal font-semibold px-8 shadow-lg shadow-gold/20"
               >
-                Request a Consultation
-                <ArrowRight className="ml-2 h-5 w-5" />
+                <Link to="/#contact">
+                  Request a Consultation
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
               </Button>
               <Button
-                onClick={() => scrollToSection("#services")}
+                asChild
                 variant="outline"
                 size="lg"
                 className="border-gold/50 bg-white/5 backdrop-blur-sm text-white hover:bg-gold hover:text-charcoal hover:border-gold"
               >
-                Explore Practice Areas
+                <Link to="/services">Explore Practice Areas</Link>
               </Button>
             </div>
 

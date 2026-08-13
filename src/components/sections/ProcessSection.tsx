@@ -6,15 +6,9 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const ProcessSection = () => {
-  const scrollToContact = () => {
-    const element = document.querySelector("#contact");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   const steps = [
     {
       number: "01",
@@ -154,11 +148,13 @@ const ProcessSection = () => {
             responsibility.
           </p>
           <Button
-            onClick={scrollToContact}
+            asChild
             className="bg-gold hover:bg-gold-dark text-primary font-semibold"
           >
-            Request a Consultation
-            <ArrowRight className="ml-2 h-4 w-4" />
+            <Link to="/#contact">
+              Request a Consultation
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
           </Button>
         </div>
       </div>
