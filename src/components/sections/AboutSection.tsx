@@ -1,5 +1,6 @@
 import { Award, Users, Target, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const AboutSection = () => {
   const values = [
@@ -73,10 +74,11 @@ const AboutSection = () => {
             </blockquote>
 
             <Button
+              asChild
               variant="outline"
               className="border-gold text-primary hover:bg-gold hover:text-primary-foreground"
             >
-              Learn More About Us
+              <Link to="/team">Meet Our Team</Link>
             </Button>
           </div>
 

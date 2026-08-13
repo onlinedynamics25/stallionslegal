@@ -1,14 +1,8 @@
 import { ArrowRight, Phone } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
 const CTASection = () => {
-  const scrollToContact = () => {
-    const element = document.querySelector("#contact");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
     <section className="py-24 bg-background relative overflow-hidden border-b border-gold-light dark:border-gold-light/20 ">
       {/* Gold Accent Lines */}
@@ -37,15 +31,17 @@ const CTASection = () => {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button
-              onClick={scrollToContact}
+              asChild
               size="lg"
               className="bg-gold hover:bg-gold-dark text-primary-foreground font-semibold px-8 w-full sm:w-auto"
             >
-              Book an Appointment
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <Link to="/#contact">
+                Book an Appointment
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
             </Button>
 
-            <a href="tel:+254719407999" className="w-full sm:w-auto">
+            <a href="tel:+2348032429497" className="w-full sm:w-auto">
               <Button
                 variant="outline"
                 size="lg"
@@ -71,11 +67,14 @@ const CTASection = () => {
               interests as you grow.
             </p>
             <Button
+              asChild
               variant="outline"
               className="border-gold/40 text-primary-background hover:bg-charcoal-light hover:text-gold"
             >
-              View Retainership Services
-              <ArrowRight className="ml-2 h-4 w-4" />
+              <Link to="/services#legal-retainership-services">
+                View Retainership Services
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
             </Button>
           </div>
         </div>

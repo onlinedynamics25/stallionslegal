@@ -1,28 +1,35 @@
 import { Link } from "react-router-dom";
-import { Linkedin, Twitter, Mail, Phone, MapPin } from "lucide-react";
+import { Linkedin, Mail, Phone, MapPin, MessageCircle } from "lucide-react";
 import BrandLogo from "@/components/BrandLogo";
+
+const slugify = (value: string) =>
+  value
+    .toLowerCase()
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-
 
   const practiceAreas = [
     "Corporate & Commercial Law",
     "Property & Real Estate Law",
     "Contract Law",
     "Employment & Labour Law",
-    "Dispute Resolution",
-    "Legal Retainership",
-    "Regulatory Compliance",
+    "Dispute Resolution & Advisory",
+    "Legal Retainership Services",
+    "Regulatory & Compliance Advisory",
   ];
 
   const quickLinks = [
-    { name: "Home", href: "#home" },
-    { name: "About Us", href: "#about" },
-    { name: "Services", href: "#services" },
-    { name: "How We Work", href: "#process" },
+    { name: "Home", href: "/" },
+    { name: "About Us", href: "/about" },
+    { name: "Services", href: "/services" },
+    { name: "How We Work", href: "/process" },
+    { name: "Our Team", href: "/team" },
     { name: "Blog", href: "/blog" },
-    { name: "Contact Us", href: "#contact" },
+    { name: "Contact Us", href: "/#contact" },
   ];
 
   const departmentMail = [
@@ -32,12 +39,6 @@ const Footer = () => {
     "matters@stallionslegal.com",
   ];
 
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
 
   return (
     <footer className="bg-foreground text-background">
@@ -65,21 +66,32 @@ const Footer = () => {
             <p className="text-gold italic text-sm">
               "Safe Solutions, Real Relationships"
             </p>
-            {/* Social Links */}
+            {/* Social / direct channels */}
             <div className="flex items-center gap-4 pt-4">
               <a
-                href="#"
+                href="https://www.linkedin.com/company/stallions-sterling-law-firm"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-charcoal-light dark:text-foreground flex items-center justify-center hover:bg-gold hover:text-foreground transition-colors"
-                aria-label="LinkedIn"
+                aria-label="Stallions Sterling on LinkedIn"
               >
                 <Linkedin className="h-5 w-5" />
               </a>
               <a
-                href="#"
+                href="https://wa.me/2348032429497"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-charcoal-light dark:text-foreground flex items-center justify-center hover:bg-gold hover:text-foreground transition-colors"
-                aria-label="Twitter"
+                aria-label="Chat with us on WhatsApp"
               >
-                <Twitter className="h-5 w-5" />
+                <MessageCircle className="h-5 w-5" />
+              </a>
+              <a
+                href="mailto:stallionslegal@gmail.com"
+                className="w-10 h-10 rounded-full bg-charcoal-light dark:text-foreground flex items-center justify-center hover:bg-gold hover:text-foreground transition-colors"
+                aria-label="Email Stallions Sterling"
+              >
+                <Mail className="h-5 w-5" />
               </a>
             </div>
           </div>
@@ -92,21 +104,12 @@ const Footer = () => {
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.name}>
-                  {link.href.startsWith("/") ? (
-                    <Link
-                      to={link.href}
-                      className="text-background/70 hover:text-gold transition-colors text-sm"
-                    >
-                      {link.name}
-                    </Link>
-                  ) : (
-                    <button
-                      onClick={() => scrollToSection(link.href)}
-                      className="text-background/70 hover:text-gold transition-colors text-sm"
-                    >
-                      {link.name}
-                    </button>
-                  )}
+                  <Link
+                    to={link.href}
+                    className="text-background/70 hover:text-gold transition-colors text-sm"
+                  >
+                    {link.name}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -120,16 +123,17 @@ const Footer = () => {
             <ul className="space-y-3">
               {practiceAreas.map((area) => (
                 <li key={area}>
-                  <button
-                    onClick={() => scrollToSection("#services")}
+                  <Link
+                    to={`/services#${slugify(area)}`}
                     className="text-background/70 hover:text-gold transition-colors text-sm"
                   >
                     {area}
-                  </button>
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
+
 
           {/* Contact Info */}
           <div>
@@ -146,7 +150,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="tel:+254719407999"
+                  href="tel:+2348032429497"
                   className="flex items-center gap-3 text-background/70 hover:text-gold transition-colors"
                 >
                   <Phone className="h-5 w-5 text-gold shrink-0" />
@@ -192,12 +196,12 @@ const Footer = () => {
               reserved.
             </p>
             <div className="flex items-center gap-6">
-              <a href="#" className="hover:text-gold transition-colors">
+              <Link to="/privacy" className="hover:text-gold transition-colors">
                 Privacy Policy
-              </a>
-              <a href="#" className="hover:text-gold transition-colors">
+              </Link>
+              <Link to="/terms" className="hover:text-gold transition-colors">
                 Terms of Service
-              </a>
+              </Link>
             </div>
           </div>
         </div>

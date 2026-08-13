@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import corporateImg from "@/assets/practice-corporate.jpg";
@@ -8,6 +9,13 @@ import employmentImg from "@/assets/practice-employment.jpg";
 import disputeImg from "@/assets/practice-dispute.jpg";
 import retainerImg from "@/assets/practice-retainer.jpg";
 import complianceImg from "@/assets/practice-compliance.jpg";
+
+const slugify = (value: string) =>
+  value
+    .toLowerCase()
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
 
 const PracticeAreasSection = () => {
   const practiceAreas = [
@@ -70,7 +78,8 @@ const PracticeAreasSection = () => {
           {practiceAreas.map((area) => (
             <Card
               key={area.title}
-              className="group overflow-hidden hover:shadow-2xl transition-all duration-500 border-border hover:border-gold/40 bg-background flex flex-col"
+              id={slugify(area.title)}
+              className="scroll-mt-28 group overflow-hidden hover:shadow-2xl transition-all duration-500 border-border hover:border-gold/40 bg-background flex flex-col"
             >
               {/* Cover Image */}
               <div className="relative w-full aspect-[16/10] overflow-hidden">
@@ -97,10 +106,13 @@ const PracticeAreasSection = () => {
                 </p>
               </CardContent>
               <CardFooter className="px-6 pb-6 pt-0">
-                <button className="inline-flex items-center text-gold hover:text-gold-dark font-medium text-sm group/link">
-                  Learn More
+                <Link
+                  to="/#contact"
+                  className="inline-flex items-center text-gold hover:text-gold-dark font-medium text-sm group/link"
+                >
+                  Discuss This Matter
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/link:translate-x-1" />
-                </button>
+                </Link>
               </CardFooter>
             </Card>
           ))}
@@ -109,11 +121,15 @@ const PracticeAreasSection = () => {
         {/* CTA */}
         <div className="text-center mt-12">
           <Button
+            asChild
             variant="outline"
             size="lg"
             className="border-gold text-primary hover:bg-gold hover:text-primary-foreground"
           >
-            View All Services
+            <Link to="/#contact">
+              Request a Consultation
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
           </Button>
         </div>
       </div>
