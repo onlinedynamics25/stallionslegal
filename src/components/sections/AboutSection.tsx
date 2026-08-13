@@ -1,5 +1,6 @@
 import { Award, Users, Target, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const AboutSection = () => {
   const values = [
