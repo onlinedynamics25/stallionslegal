@@ -1,28 +1,35 @@
 import { Link } from "react-router-dom";
-import { Linkedin, Twitter, Mail, Phone, MapPin } from "lucide-react";
+import { Linkedin, Mail, Phone, MapPin, MessageCircle } from "lucide-react";
 import BrandLogo from "@/components/BrandLogo";
+
+const slugify = (value: string) =>
+  value
+    .toLowerCase()
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-
 
   const practiceAreas = [
     "Corporate & Commercial Law",
     "Property & Real Estate Law",
     "Contract Law",
     "Employment & Labour Law",
-    "Dispute Resolution",
-    "Legal Retainership",
-    "Regulatory Compliance",
+    "Dispute Resolution & Advisory",
+    "Legal Retainership Services",
+    "Regulatory & Compliance Advisory",
   ];
 
   const quickLinks = [
-    { name: "Home", href: "#home" },
-    { name: "About Us", href: "#about" },
-    { name: "Services", href: "#services" },
-    { name: "How We Work", href: "#process" },
+    { name: "Home", href: "/" },
+    { name: "About Us", href: "/about" },
+    { name: "Services", href: "/services" },
+    { name: "How We Work", href: "/process" },
+    { name: "Our Team", href: "/team" },
     { name: "Blog", href: "/blog" },
-    { name: "Contact Us", href: "#contact" },
+    { name: "Contact Us", href: "/#contact" },
   ];
 
   const departmentMail = [
@@ -32,12 +39,6 @@ const Footer = () => {
     "matters@stallionslegal.com",
   ];
 
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
 
   return (
     <footer className="bg-foreground text-background">
