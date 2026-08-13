@@ -107,7 +107,7 @@ const PracticeAreasSection = () => {
               </CardContent>
               <CardFooter className="px-6 pb-6 pt-0">
                 <Link
-                  to={`/#contact?area=${slugify(area.title)}`}
+                  to="/#contact"
                   className="inline-flex items-center text-gold hover:text-gold-dark font-medium text-sm group/link"
                 >
                   Discuss This Matter
