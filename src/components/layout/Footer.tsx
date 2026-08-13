@@ -150,7 +150,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="tel:+254719407999"
+                  href="tel:+2348032429497"
                   className="flex items-center gap-3 text-background/70 hover:text-gold transition-colors"
                 >
                   <Phone className="h-5 w-5 text-gold shrink-0" />
@@ -196,12 +196,12 @@ const Footer = () => {
               reserved.
             </p>
             <div className="flex items-center gap-6">
-              <a href="#" className="hover:text-gold transition-colors">
+              <Link to="/privacy" className="hover:text-gold transition-colors">
                 Privacy Policy
-              </a>
-              <a href="#" className="hover:text-gold transition-colors">
+              </Link>
+              <Link to="/terms" className="hover:text-gold transition-colors">
                 Terms of Service
-              </a>
+              </Link>
             </div>
           </div>
         </div>
