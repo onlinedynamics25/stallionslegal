@@ -91,12 +91,16 @@ const TeamMemberPage = () => {
                   >
                     <Mail className="h-4 w-4" /> Email
                   </a>
-                  <a
-                    href={member.linkedin}
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold/40 text-cream hover:bg-gold hover:text-primary-foreground transition-colors text-sm"
-                  >
-                    <Linkedin className="h-4 w-4" /> LinkedIn
-                  </a>
+                  {hasLinkedIn(member.linkedin) && (
+                    <a
+                      href={member.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold/40 text-cream hover:bg-gold hover:text-primary-foreground transition-colors text-sm"
+                    >
+                      <Linkedin className="h-4 w-4" /> LinkedIn
+                    </a>
+                  )}
                 </div>
               </div>
             </div>
@@ -162,12 +166,16 @@ const TeamMemberPage = () => {
                     >
                       <Mail className="h-4 w-4" /> {member.email}
                     </a>
-                    <a
-                      href={member.linkedin}
-                      className="flex items-center gap-2 text-muted-foreground hover:text-gold transition-colors"
-                    >
-                      <Linkedin className="h-4 w-4" /> LinkedIn profile
-                    </a>
+                    {hasLinkedIn(member.linkedin) && (
+                      <a
+                        href={member.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 text-muted-foreground hover:text-gold transition-colors"
+                      >
+                        <Linkedin className="h-4 w-4" /> LinkedIn profile
+                      </a>
+                    )}
                   </div>
                 </div>
               </aside>
