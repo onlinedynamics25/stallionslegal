@@ -3,7 +3,7 @@ import { Linkedin, Mail, ArrowLeft } from "lucide-react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
-import { getMemberBySlug, initialsOf } from "@/data/team";
+import { getMemberBySlug, initialsOf, hasLinkedIn } from "@/data/team";
 
 const Block = ({
   title,
