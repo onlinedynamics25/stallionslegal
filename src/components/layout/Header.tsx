@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Menu, X, Phone } from "lucide-react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import ThemeToggle from "@/components/ThemeToggle";
 import BrandLogo from "@/components/BrandLogo";
@@ -19,28 +19,17 @@ const navLinks = [
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
-  const navigate = useNavigate();
-  
 
-  const handleNavClick = (href: string) => {
-    setIsMenuOpen(false);
+  const closeMenu = () => setIsMenuOpen(false);
 
-    if (href.startsWith("/#")) {
-      const sectionId = href.substring(1);
-      if (location.pathname === "/") {
-        const element = document.querySelector(sectionId);
-        if (element) {
-          element.scrollIntoView({ behavior: "smooth" });
-        }
-      } else {
-        navigate("/");
-        setTimeout(() => {
-          const element = document.querySelector(sectionId);
-          if (element) {
-            element.scrollIntoView({ behavior: "smooth" });
-          }
-        }, 100);
-      }
+  // In-page anchors on the homepage still need a manual scroll when the user
+  // is already on "/" and the router location does not change.
+  const handleHashClick = (href: string) => {
+    closeMenu();
+    if (location.pathname === "/" && location.hash === href.substring(1)) {
+      document
+        .getElementById(href.split("#")[1])
+        ?.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
 
@@ -71,29 +60,20 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-5 lg:gap-7 whitespace-nowrap">
 
-            {navLinks.map((link) =>
-              link.href.startsWith("/#") ? (
-                <button
-                  key={link.name}
-                  onClick={() => handleNavClick(link.href)}
-                  className="text-foreground/80 hover:text-gold transition-colors font-medium"
-                >
-                  {link.name}
-                </button>
-              ) : (
-                <Link
-                  key={link.name}
-                  to={link.href}
-                  className={`transition-colors font-medium ${
-                    isActive(link.href)
-                      ? "text-gold"
-                      : "text-foreground/80 hover:text-gold"
-                  }`}
-                >
-                  {link.name}
-                </Link>
-              ),
-            )}
+            {navLinks.map((link) => (
+              <Link
+                key={link.name}
+                to={link.href}
+                onClick={() => handleHashClick(link.href)}
+                className={`transition-colors font-medium ${
+                  isActive(link.href)
+                    ? "text-gold"
+                    : "text-foreground/80 hover:text-gold"
+                }`}
+              >
+                {link.name}
+              </Link>
+            ))}
           </nav>
 
           {/* CTA Button */}
@@ -107,10 +87,12 @@ const Header = () => {
               <span className="text-sm">+234 803 242 9497</span>
             </a>
             <Button
-              onClick={() => handleNavClick("/#contact")}
+              asChild
               className="bg-gold hover:bg-background text-primary-foreground hover:border-2 hover:border-gold/50 hover:text-gold/80 font-semibold"
             >
-              Request Consultation
+              <Link to="/#contact" onClick={() => handleHashClick("/#contact")}>
+                Request Consultation
+              </Link>
             </Button>
           </div>
 
@@ -132,30 +114,20 @@ const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden py-4 border-t border-charcoal-light">
             <nav className="flex flex-col gap-4">
-              {navLinks.map((link) =>
-                link.href.startsWith("/#") ? (
-                  <button
-                    key={link.name}
-                    onClick={() => handleNavClick(link.href)}
-                    className="text-foreground/80 hover:text-gold transition-colors font-medium text-left py-2"
-                  >
-                    {link.name}
-                  </button>
-                ) : (
-                  <Link
-                    key={link.name}
-                    to={link.href}
-                    onClick={() => setIsMenuOpen(false)}
-                    className={`transition-colors font-medium text-left py-2 ${
-                      isActive(link.href)
-                        ? "text-gold"
-                        : "text-foreground/80 hover:text-gold"
-                    }`}
-                  >
-                    {link.name}
-                  </Link>
-                ),
-              )}
+              {navLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  to={link.href}
+                  onClick={() => handleHashClick(link.href)}
+                  className={`transition-colors font-medium text-left py-2 ${
+                    isActive(link.href)
+                      ? "text-gold"
+                      : "text-foreground/80 hover:text-gold"
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              ))}
               <div className="flex items-center gap-2 py-2">
                 <span className="text-foreground/60 text-sm">Theme:</span>
                 <ThemeToggle />
@@ -168,10 +140,12 @@ const Header = () => {
                 <span>+234 803 242 9497</span>
               </a>
               <Button
-                onClick={() => handleNavClick("/#contact")}
+                asChild
                 className="bg-gold hover:bg-gold-dark text-primary hover:text-primary-foreground font-semibold w-full mt-2"
               >
-                Request Consultation
+                <Link to="/#contact" onClick={() => handleHashClick("/#contact")}>
+                  Request Consultation
+                </Link>
               </Button>
             </nav>
           </div>
