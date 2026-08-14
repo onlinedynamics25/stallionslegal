@@ -3,7 +3,7 @@ import { Linkedin, Mail, ArrowRight } from "lucide-react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
-import { team, teamGroups, initialsOf, type TeamMember } from "@/data/team";
+import { team, teamGroups, initialsOf, hasLinkedIn, type TeamMember } from "@/data/team";
 
 const MemberCard = ({ member }: { member: TeamMember }) => (
   <article className="group rounded-xl border border-border bg-card overflow-hidden transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-gold/40">
@@ -42,13 +42,17 @@ const MemberCard = ({ member }: { member: TeamMember }) => (
         </p>
       )}
       <div className="flex items-center gap-3 mt-5 pt-4 border-t border-border">
-        <a
-          href={member.linkedin}
-          aria-label={`LinkedIn profile of ${member.name}`}
-          className="p-2 rounded-full border border-border text-muted-foreground hover:text-gold hover:border-gold/50 transition-colors"
-        >
-          <Linkedin className="h-4 w-4" />
-        </a>
+        {hasLinkedIn(member.linkedin) && (
+          <a
+            href={member.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`LinkedIn profile of ${member.name}`}
+            className="p-2 rounded-full border border-border text-muted-foreground hover:text-gold hover:border-gold/50 transition-colors"
+          >
+            <Linkedin className="h-4 w-4" />
+          </a>
+        )}
         <a
           href={`mailto:${member.email}`}
           aria-label={`Email ${member.name}`}
