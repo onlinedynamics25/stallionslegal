@@ -213,3 +213,7 @@ export const initialsOf = (name: string) =>
     .map((w) => w[0])
     .join("")
     .toUpperCase();
+
+/** Placeholder values ("#", "") mean the member has no public LinkedIn yet. */
+export const hasLinkedIn = (url?: string) =>
+  Boolean(url && url !== "#" && url.startsWith("http"));
