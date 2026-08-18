@@ -1,0 +1,1 @@
+UPDATE posts SET body = regexp_replace(body, '> Chairman, ICMC Ibadan Branch', '> Chairman, ICMC Ibadan', 'g'), updated_at = NOW() WHERE id = 'c336a000-e103-43f3-a068-6217a3980fa7';
