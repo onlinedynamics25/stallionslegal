@@ -71,7 +71,9 @@ const normalizeMarkdown = (value: string) => {
   // Some database imports flatten line breaks into repeated spaces. Restore
   // those separators so Markdown headings, lists, and paragraphs can parse.
   if (!normalizedLineEndings.includes("\n") && /(?:^|\s)#{1,6}\s/.test(normalizedLineEndings)) {
-    return normalizedLineEndings.replace(/\s{2,}/g, "\n\n");
+    return normalizedLineEndings
+      .replace(/\s{2,}/g, "\n\n")
+      .replace(/ \* (?=\S)/g, "\n- ");
   }
 
   return normalizedLineEndings;
