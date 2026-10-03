@@ -325,11 +325,15 @@ const BlogPost = () => {
                     prose-blockquote:font-serif prose-blockquote:text-lg md:prose-blockquote:text-xl"
                 >
                   <ReactMarkdown
+                    skipHtml
                     components={{
                       h2: ({ children }) => {
                         const text = String(children);
                         return <h2 id={slugify(text)}>{children}</h2>;
                       },
+                      p: ({ children }) => (
+                        <p className="whitespace-pre-line">{children}</p>
+                      ),
                     }}
                   >
                     {post.body}
