@@ -65,6 +65,20 @@ const formatDate = (value: string | null) =>
       })
     : "";
 
+const normalizeMarkdown = (value: string) => {
+  const normalizedLineEndings = value.replace(/\r\n?/g, "\n").trim();
+
+  // Some database imports flatten line breaks into repeated spaces. Restore
+  // those separators so Markdown headings, lists, and paragraphs can parse.
+  if (!normalizedLineEndings.includes("\n") && /(?:^|\s)#{1,6}\s/.test(normalizedLineEndings)) {
+    return normalizedLineEndings
+      .replace(/\s{2,}/g, "\n\n")
+      .replace(/ \* (?=\S)/g, "\n- ");
+  }
+
+  return normalizedLineEndings;
+};
+
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
 
@@ -77,6 +91,7 @@ const BlogPost = () => {
   const post = index >= 0 ? posts![index] : undefined;
   const newer = index > 0 ? posts![index - 1] : undefined;
   const older = posts && index >= 0 && index < posts.length - 1 ? posts[index + 1] : undefined;
+  const markdownBody = useMemo(() => normalizeMarkdown(post?.body ?? ""), [post?.body]);
 
   const related = useMemo(() => {
     if (!posts || !post) return [];
@@ -87,20 +102,20 @@ const BlogPost = () => {
 
   const headings = useMemo(() => {
     if (!post) return [];
-    return post.body
+    return markdownBody
       .split("\n")
       .filter((line) => /^##\s+/.test(line))
       .map((line) => {
         const text = line.replace(/^##\s+/, "").trim();
         return { text, id: slugify(text) };
       });
-  }, [post]);
+  }, [post, markdownBody]);
 
   const readingTime = useMemo(() => {
     if (!post) return 0;
-    const words = post.body.trim().split(/\s+/).length;
+    const words = markdownBody.trim().split(/\s+/).length;
     return Math.max(1, Math.round(words / 200));
-  }, [post]);
+  }, [post, markdownBody]);
 
   const canonical = `${SITE_URL}/blog/${slug}`;
   const seoTitle = post ? `${post.title} | Stallions Sterling Law Firm` : "Article";
@@ -310,11 +325,11 @@ const BlogPost = () => {
                 </div>
 
                 <div
-                  className="prose prose-neutral dark:prose-invert max-w-none
+                  className="prose prose-neutral dark:prose-invert max-w-none font-normal
                     prose-headings:font-serif prose-headings:text-foreground prose-headings:tracking-tight
                     prose-h2:text-2xl md:prose-h2:text-3xl prose-h2:mt-14 prose-h2:mb-5 prose-h2:scroll-mt-28
                     prose-h3:text-xl prose-h3:mt-10
-                    prose-p:text-base md:prose-p:text-[1.0625rem] prose-p:leading-[1.85] prose-p:text-foreground/85
+                    prose-p:my-5 prose-p:font-normal prose-p:text-base md:prose-p:text-[1.0625rem] prose-p:leading-[1.85] prose-p:text-foreground/85
                     prose-strong:text-foreground
                     prose-a:text-gold prose-a:no-underline hover:prose-a:underline
                     prose-li:leading-relaxed prose-li:text-foreground/85 prose-li:marker:text-gold
@@ -336,7 +351,7 @@ const BlogPost = () => {
                       ),
                     }}
                   >
-                    {post.body}
+                    {markdownBody}
                   </ReactMarkdown>
                 </div>
 
