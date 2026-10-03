@@ -78,7 +78,7 @@ function renderBlock(block: Block, index: number) {
       if (block.listItem === "number") {
         return <li key={block._key || index} className="text-foreground/80 leading-relaxed ml-6 list-decimal">{children}</li>;
       }
-      return <p key={block._key || index} className="text-foreground/80 leading-relaxed mb-4">{children}</p>;
+      return <p key={block._key || index} className="whitespace-pre-line text-foreground/80 leading-relaxed mb-4">{children}</p>;
   }
 }
 
