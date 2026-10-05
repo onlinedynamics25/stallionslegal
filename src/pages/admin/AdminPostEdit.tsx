@@ -33,6 +33,7 @@ const AdminPostEdit = () => {
   const [body, setBody] = useState("");
   const [coverUrl, setCoverUrl] = useState("");
   const [published, setPublished] = useState(false);
+  const [tags, setTags] = useState("");
   const [uploading, setUploading] = useState(false);
   const [saving, setSaving] = useState(false);
   const [loading, setLoading] = useState(!isNew);
@@ -49,6 +50,7 @@ const AdminPostEdit = () => {
         setBody(data.body ?? "");
         setCoverUrl(data.cover_image_url ?? "");
         setPublished(data.published);
+        setTags(((data.tags_jsonb as string[] | null) ?? []).join(", "));
       }
       setLoading(false);
     })();
@@ -86,6 +88,7 @@ const AdminPostEdit = () => {
       body,
       cover_image_url: coverUrl || null,
       published,
+      tags_jsonb: tags.split(",").map((t) => t.trim()).filter(Boolean),
       published_at: published ? new Date().toISOString() : null,
     };
     const op = isNew
@@ -138,6 +141,12 @@ const AdminPostEdit = () => {
           <div>
             <Label htmlFor="excerpt">Excerpt (optional)</Label>
             <Textarea id="excerpt" rows={2} value={excerpt} onChange={(e) => setExcerpt(e.target.value)} />
+          </div>
+
+          <div>
+            <Label htmlFor="tags">Tags (optional)</Label>
+            <Input id="tags" value={tags} onChange={(e) => setTags(e.target.value)} placeholder="Tax, Nigerian Tax Act, SMEs" />
+            <p className="text-xs text-muted-foreground mt-1">Separate tags with commas.</p>
           </div>
 
           <div>
