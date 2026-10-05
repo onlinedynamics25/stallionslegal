@@ -46,6 +46,7 @@ export type Database = {
           slug: string
           subtitle: string | null
           tags: string[]
+          tags_jsonb: Json
           title: string
           updated_at: string
         }
@@ -62,6 +63,7 @@ export type Database = {
           slug: string
           subtitle?: string | null
           tags?: string[]
+          tags_jsonb?: Json
           title: string
           updated_at?: string
         }
@@ -78,6 +80,7 @@ export type Database = {
           slug?: string
           subtitle?: string | null
           tags?: string[]
+          tags_jsonb?: Json
           title?: string
           updated_at?: string
         }
