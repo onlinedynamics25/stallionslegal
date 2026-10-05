@@ -29,7 +29,7 @@ interface Post {
   subtitle: string | null;
   author: string | null;
   category: string | null;
-  tags: string[] | null;
+  tags_jsonb: string[] | null;
   excerpt: string | null;
   published_at: string | null;
   cover_image_url: string | null;
@@ -37,7 +37,7 @@ interface Post {
 }
 
 const POST_FIELDS =
-  "id, title, slug, subtitle, author, category, tags, excerpt, published_at, cover_image_url, body";
+  "id, title, slug, subtitle, author, category, tags_jsonb, excerpt, published_at, cover_image_url, body";
 
 const fetchPosts = async (): Promise<Post[]> => {
   const { data, error } = await supabase
@@ -176,7 +176,7 @@ const BlogPost = () => {
             author: { "@type": "Person", name: post.author ?? "Stallions Sterling Law Firm" },
             publisher: { "@type": "Organization", name: "Stallions Sterling Law Firm" },
             articleSection: post.category ?? undefined,
-            keywords: (post.tags ?? []).join(", "),
+            keywords: (post.tags_jsonb ?? []).join(", "),
             mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
           }}
         />
@@ -355,9 +355,9 @@ const BlogPost = () => {
                   </ReactMarkdown>
                 </div>
 
-                {post.tags && post.tags.length > 0 && (
+                {post.tags_jsonb && post.tags_jsonb.length > 0 && (
                   <div className="mt-12 flex flex-wrap gap-2 border-t border-border pt-8">
-                    {post.tags.map((tag) => (
+                    {post.tags_jsonb.map((tag) => (
                       <span
                         key={tag}
                         className="rounded-full bg-secondary px-3 py-1.5 text-xs font-medium text-secondary-foreground"
