@@ -1,0 +1,1 @@
+- Keep Vercel's SPA fallback limited to paths without file extensions and exclude `/api/` so direct React Router URLs work without intercepting static assets or API requests.
